@@ -24,10 +24,10 @@ require 'Post.php';
         ?>
 
         <div>
-            <h2><a href="single.php?postId=<?= htmlspecialchars($post['id']);?>"><?= htmlspecialchars($post['title']);?></a></h2>
-            <p><?= htmlspecialchars($post['content']);?></p>
-            <p><?= htmlspecialchars($post['author']);?></p>
-            <p>Créé le : <?= htmlspecialchars($post['created_date']);?></p>
+            <h2><a href="single.php?postId=<?= htmlspecialchars($post->id);?>"><?= htmlspecialchars($post->title);?></a></h2>
+            <p><?= htmlspecialchars($post->content);?></p>
+            <p><?= htmlspecialchars($post->author);?></p>
+            <p>Créé le : <?= htmlspecialchars($post->created_date);?></p>
         </div>
         <br>
         <?php
