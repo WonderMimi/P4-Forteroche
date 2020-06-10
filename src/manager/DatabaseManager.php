@@ -1,6 +1,9 @@
 <?php
+namespace P4\src\manager;
+use PDO;
+use Exception;
 
-abstract class Database  // set to abstract so it cannot be instanciated
+abstract class DatabaseManager  // set to abstract so it cannot be instanciated
 {
     const DB_HOST = 'mysql:host=localhost;dbname=forteroche;charset=utf8';
     const DB_USER = 'root';

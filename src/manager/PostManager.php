@@ -1,6 +1,8 @@
 <?php
 
-class Post extends Database
+namespace P4\src\manager;
+
+class PostManager extends DatabaseManager
 {
 
     public function getPosts()

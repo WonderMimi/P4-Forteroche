@@ -1,6 +1,6 @@
 <?php
-require 'Database.php';
-require 'Post.php';
+require '..\src\manager\DatabaseManager.php';
+require '..\src\manager\PostManager.php';
 ?>
 
 
@@ -17,7 +17,7 @@ require 'Post.php';
         <p>En construction</p>
 
         <?php
-        $post = new Post();
+        $post = new \P4\src\manager\PostManager();
         $posts = $post->getPosts();
         while($post = $posts->fetch())
         {
