@@ -1,6 +1,10 @@
 <?php
-require '..\src\manager\DatabaseManager.php';
-require '..\src\manager\PostManager.php';
+require '..\config\Autoloader.php';
+
+use P4\config\Autoloader;
+use P4\src\manager\PostManager;
+
+Autoloader::register();
 ?>
 
 
@@ -14,10 +18,10 @@ require '..\src\manager\PostManager.php';
 <body>
     <div>
         <h1>Blog de Jean Forteroche</h1>
-        <p>En construction</p>
+        <p>Toujours en travaux</p>
 
         <?php
-        $post = new \P4\src\manager\PostManager();
+        $post = new PostManager();
         $posts = $post->getPosts();
         while($post = $posts->fetch())
         {

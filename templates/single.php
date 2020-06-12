@@ -1,7 +1,11 @@
 <?php
-require '..\src\manager\DatabaseManager.php';
-require '..\src\manager\PostManager.php';
-require '..\src\manager\CommentManager.php';
+require '..\config\Autoloader.php';
+
+use P4\config\Autoloader;
+use P4\src\manager\PostManager;
+use P4\src\manager\CommentManager;
+
+Autoloader::register();
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +21,7 @@ require '..\src\manager\CommentManager.php';
     <p>En construction</p>
 
     <?php
-    $post = new \P4\src\manager\PostManager();
+    $post = new PostManager();
     $posts = $post->getPost($_GET['postId']);
     $post = $posts->fetch()
     ?>
@@ -40,7 +44,7 @@ require '..\src\manager\CommentManager.php';
     <div id="comments" class="text-left" style="margin-left: 50px">
         <h3>Commentaires</h3>
         <?php
-        $comment = new \P4\src\manager\CommentManager();
+        $comment = new CommentManager();
         $comments = $comment->getCommentsFromPost($_GET['postId']);
         while($comment = $comments->fetch())
         {
