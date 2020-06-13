@@ -15,7 +15,7 @@ use P4\src\manager\CommentManager;
 
 <body>
 <div>
-    <h1>Mon blog</h1>
+    <h1>Mes billets</h1>
     <p>En construction</p>
 
     <?php

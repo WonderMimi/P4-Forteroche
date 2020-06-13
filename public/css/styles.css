@@ -15,3 +15,91 @@ body {
     font-size: 18px;
     background-color: var(--bglacier);
 }
+
+.container {
+    max-width: 100%;
+}
+
+.container-fluid {
+    display: flex;
+    width: 100%;
+}
+
+header {
+    display: block;
+    background-color: var(--bfonce);
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin: 0 !important;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    border-bottom: 4px solid var(--bglacier);
+}
+
+.main {
+    margin-top: 72px;
+}
+
+.page_title {
+    text-align: center;
+}
+
+.navbar-brand {
+    color: var(--bglacier);
+}
+
+.navbar-fixed-top {
+    justify-content: space-between;
+}
+
+a:link,
+li a:visited {
+    text-decoration: none;
+    color: var(--bglacier);
+}
+
+ul {
+    list-style-type: none;
+}
+
+nav {
+    display: inline-block;
+    justify-content: space-between;
+    align-content: center;
+    width: 100%;
+}
+
+nav a {
+    padding: 10px 15px 9px 15px !important;
+    color: var(--bglacier);
+}
+
+li .nav-item .active {
+    border-bottom: solid 2px var(--bglacier);
+}
+
+.alaska {
+    justify-content: center;
+    max-width: fit-content;
+    height: auto;
+}
+
+figcaption {
+    position: absolute;
+    z-index: 100;
+    top: 40%;
+    bottom: 0;
+    left: 25%;
+}
+
+h1 {
+    color: white;
+    z-index: 100;
+    font-weight: bolder;
+    font-size: 4em;
+}
