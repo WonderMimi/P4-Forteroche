@@ -19,20 +19,19 @@ class PostManager extends DatabaseManager
     public function getPosts()
     {
         $sql = 'SELECT id, title, content, author, created_date FROM posts ORDER BY id DESC LIMIT 5';
-        return $this->createQuery($sql);
+        $result = $this->createQuery($sql);
         $posts = [];
         foreach ($result as $row){
-            $postId = $row['id'];
-            $posts[$postId] = $this->buildObject($row);
+             $posts[$row['id']] = $this->buildObject($row);
         }
         $result->closeCursor();
         return $posts;
     }
-
+   
     public function getPost($postId)  // gets a specific post based on its id
    {
        $sql = 'SELECT id, title, content, author, created_date FROM posts WHERE id = ?';
-       return $this->createQuery($sql, [$postId]);
+       $result = $this->createQuery($sql, [$postId]);
        $post = $result->fetch();
        $result->closeCursor();
        return $this->buildObject($post);

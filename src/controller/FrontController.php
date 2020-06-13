@@ -30,8 +30,8 @@ class FrontController
     {
         $post = $this->postManager->getPost($postId);
         $comments = $this->commentManager->getCommentsFromPost($postId);
-        return $this->view->render('home', [
-            'posts' => $posts,
+        return $this->view->render('single', [
+            'post' => $post,
             'comments' => $comments
         ]);
     }
