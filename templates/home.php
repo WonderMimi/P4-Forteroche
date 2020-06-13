@@ -1,10 +1,8 @@
 <?php
-require '../vendor/autoload.php';
+// require '../vendor/autoload.php';
 
 use P4\src\manager\PostManager;
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -26,7 +24,6 @@ use P4\src\manager\PostManager;
         <nav class="navbar navbar-expand-sm navbar-fixed-top">
             <p class="navbar-brand">Jean FORTEROCHE</p>
             <ul class="navbar-nav">
-                <!-- I add the 'active' class depending on page displayed -->
                 <li class="nav-item"><a href="#"><span class="fa fa-home"></span> Accueil</a></li>
                 <li class="nav-item"><a href="#"><span class="fa fa-book"></span> Billets</a></li>
             </ul>
@@ -49,7 +46,7 @@ use P4\src\manager\PostManager;
         ?>
 
         <div>
-            <h2><a href="single.php?postId=<?= htmlspecialchars($post->id);?>"><?= htmlspecialchars($post->title);?></a></h2>
+            <h2><a href="../public/index.php?route=post&postId<?= htmlspecialchars($post->id);?>"><?= htmlspecialchars($post->title);?></a></h2>
             <p><?= htmlspecialchars($post->content);?></p>
             <p><?= htmlspecialchars($post->author);?></p>
             <p>Créé le : <?= htmlspecialchars($post->created_date);?></p>

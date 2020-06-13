@@ -1,5 +1,5 @@
 <?php
-require '../vendor/autoload.php';
+// require '../vendor/autoload.php';
 
 use P4\src\manager\PostManager;
 use P4\src\manager\CommentManager;
@@ -37,7 +37,7 @@ use P4\src\manager\CommentManager;
     $posts->closeCursor();
     ?>
 
-    <a href="home.php">Retour à l'accueil</a>
+    <a href="../public/index.php">Retour à l'accueil</a>
 
     <div id="comments" class="text-left" style="margin-left: 50px">
         <h3>Commentaires</h3>
