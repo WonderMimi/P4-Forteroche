@@ -1,7 +1,6 @@
 <?php
 // require '../vendor/autoload.php';
 
-use P4\src\manager\PostManager;
 ?>
 
 <!DOCTYPE html>
@@ -39,8 +38,7 @@ use P4\src\manager\PostManager;
         <p>En construction</p>
 
         <?php
-        $post = new PostManager();
-        $posts = $post->getPosts();
+
         while($post = $posts->fetch())
         {
         ?>
