@@ -1,10 +1,8 @@
 <?php
-require '..\config\Autoloader.php';
+require '../vendor/autoload.php';
 
-use P4\config\Autoloader;
 use P4\src\manager\PostManager;
 
-Autoloader::register();
 ?>
 
 

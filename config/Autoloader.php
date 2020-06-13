@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 namespace P4\config;
 
@@ -15,4 +15,4 @@ class Autoloader
         $class = str_replace('\\', '/', $class);
         require '../'.$class.'.php';
     }
-}
+} -->

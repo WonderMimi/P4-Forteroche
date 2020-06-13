@@ -1,11 +1,9 @@
 <?php
-require '..\config\Autoloader.php';
+require '../vendor/autoload.php';
 
-use P4\config\Autoloader;
 use P4\src\manager\PostManager;
 use P4\src\manager\CommentManager;
 
-Autoloader::register();
 ?>
 
 <!DOCTYPE html>
