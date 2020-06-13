@@ -23,7 +23,7 @@ abstract class DatabaseManager  // set to abstract so it cannot be instanciated
     {
         //Ties to connect to DB
         try{
-            $this->connection = new PDO(DB_HOST, DB_USER, DB_PASS); 
+            $this->connection = new PDO(DB_HOST, DB_USER, DB_PASS);
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $this->connection;
         }
@@ -39,12 +39,10 @@ abstract class DatabaseManager  // set to abstract so it cannot be instanciated
         if($parameters)
         {
             $result = $this->checkConnection()->prepare($sql);
-            $result->setFetchMode(PDO::FETCH_CLASS, static::class); //Gets dynamically name of class which called the method
             $result->execute($parameters);
             return $result;
         }
         $result = $this->checkConnection()->query($sql);
-        $result->setFetchMode(PDO::FETCH_CLASS, static::class);
         return $result;
     }
 }

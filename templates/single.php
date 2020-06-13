@@ -1,48 +1,31 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="utf-8">
-    <title>Billet</title>
-</head>
+<?php $this->title = "Billet"; ?>
 
-<body>
+<div>
+    <h1>Mes billets</h1>
+    <p>En construction</p>
+
     <div>
-        <h1>Mes billets</h1>
-        <p>En construction</p>
-
-        <?php
-            $post = $posts->fetch()
-        ?>
-
-        <div>
-            <h2><?= htmlspecialchars($post->title);?></h2>
-            <p><?= htmlspecialchars($post->content);?></p>
-            <p><?= htmlspecialchars($post->author);?></p>
-            <p>Créé le : <?= htmlspecialchars($post->created_date);?></p>
-        </div>
-        <hr>
-        <br>
-
-        <?php
-        $posts->closeCursor();
-        ?>
-
-        <a href="../public/index.php">Retour à l'accueil</a>
-
-        <div id="comments" class="text-left" style="margin-left: 50px">
-            <h3>Commentaires</h3>
-            <?php
-            while($comment = $comments->fetch())
-            {
-                ?>
-                <h4><?= htmlspecialchars($comment->author);?></h4>
-                <p><?= htmlspecialchars($comment->comment);?></p>
-                <p>Posté le <?= htmlspecialchars($comment->created_date);?></p>
-                <?php
-            }
-            $comments->closeCursor();
-            ?>
-        </div>
+        <h2><?= htmlspecialchars($post->getTitle());?></h2>
+        <p><?= htmlspecialchars($post->getContent());?></p>
+        <p><?= htmlspecialchars($post->getAuthor());?></p>
+        <p>Créé le : <?= htmlspecialchars($post->getCreated_date());?></p>
     </div>
-</body>
-</html>
+
+    <br>
+
+    <a href="../public/index.php">Retour à l'accueil</a>
+
+    <div id="comments" class="text-left" style="margin-left: 50px"> <!-- NOTE move to stylesheet -->
+        <h3>Commentaires</h3>
+        <?php
+        foreach($comments as $comment)
+        {
+            ?>
+            <h4><?= htmlspecialchars($comment->getAuthor());?></h4>
+            <p><?= htmlspecialchars($comment->getComment());?></p>
+            <p>Posté le <?= htmlspecialchars($comment->getCreated_date());?></p>
+            <?php
+        }
+        ?>
+    </div>
+</div>
