@@ -1,6 +1,7 @@
 <?php
 
 namespace P4\src\manager;
+use P4\config\Parameter;
 use P4\src\model\Post;
 
 class PostManager extends DatabaseManager
