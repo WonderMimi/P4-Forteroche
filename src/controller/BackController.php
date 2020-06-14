@@ -2,18 +2,8 @@
 
 namespace P4\src\controller;
 
-use P4\src\manager\PostManager;
-use P4\src\model\View;
-
-class BackController
+class BackController extends Controller
 {
-    private $view;
-
-    public function __construct()
-    {
-        $this->view = new View();
-    }
-
     public function addPost($post)
     {
         if(isset($post['submit'])) {  // if form has been submitted

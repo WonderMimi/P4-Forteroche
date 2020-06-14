@@ -1,22 +1,9 @@
 <?php
 
 namespace P4\src\controller;
-use P4\src\manager\PostManager;
-use P4\src\manager\CommentManager;
-use P4\src\model\View;
 
-class FrontController
+class FrontController extends Controller 
 {
-    private $postManager;
-    private $commentManager;
-    private $view;
-
-    public function __construct()
-    {
-        $this->postManager = new PostManager();
-        $this->commentManager = new CommentManager();
-        $this->view = new View();
-    }
 
     public function home()
     {
