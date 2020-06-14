@@ -1,34 +1,37 @@
 <?php
 
 namespace P4\config;
-use P4\src\controller\FrontController;
 use P4\src\controller\BackController;
+use P4\src\controller\FrontController;
 use Exception;
 
 class Router
 {
     private $frontController;
     private $backController;
+    private $request;
 
     public function __construct()
     {
+        $this->request = new Request();
         $this->frontController = new FrontController();
         $this->backController = new BackController();
     }
 
     public function run()
     {
+        $route = $this->request->getGet()->get('route');
         try{
-            if(isset($_GET['route']))
+            if(isset($route))
             {
-                if ($_GET['route'] === 'post'){
-                    $this->frontController->post($_GET['postId']);
+                if($route === 'post'){
+                    $this->frontController->post($this->request->getGet()->get('postId'));
                 }
-                elseif ($_GET['route'] === 'addPost'){
-                    $this->backController->addPost($_POST);
+                elseif ($route === 'addPost'){
+                    $this->backController->addPost($this->request->getPost());
                 }
-                else {
-                    echo 'page inconnue';
+                else{
+                    echo "Page introuvable";
                 }
             }
             else{
@@ -37,7 +40,7 @@ class Router
         }
         catch (Exception $e)
         {
-            echo 'Erreur';
+            echo "Erreur";
         }
     }
 }
