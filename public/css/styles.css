@@ -133,3 +133,16 @@ h1 {
 #comments {
     background-color: var(--bmoyen);
 }
+
+form {
+    max-width: 70%;
+    margin: auto;
+}
+
+input {
+    width: 60%;
+}
+
+textarea {
+    width: 70%;
+}

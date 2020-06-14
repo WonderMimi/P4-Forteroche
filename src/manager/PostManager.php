@@ -38,9 +38,20 @@ class PostManager extends DatabaseManager
        return $this->buildObject($post);
    }
 
-   public function addPost(Parameter $post) //NOTE addPost OK
+   public function addPost(Parameter $post)
     {
         $sql = 'INSERT INTO posts (title, content, author, created_date) VALUES (?, ?, ?, NOW())';
         $this->createQuery($sql, [$post->get('title'), $post->get('content'), $post->get('author')] );
+    }
+
+    public function editPost(Parameter $post, $postId)
+    {
+        $sql = 'UPDATE posts SET title=:title, content=:content, author=:author WHERE id=:postId';
+        $this->createQuery($sql, [
+            'title' => $post->get('title'),
+            'content' => $post->get('content'),
+            'author' => $post->get('author'),
+            'postId' => $postId
+        ]);
     }
 }

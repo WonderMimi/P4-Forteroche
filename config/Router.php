@@ -27,11 +27,14 @@ class Router
                 if($route === 'post'){
                     $this->frontController->post($this->request->getGet()->get('postId'));
                 }
-                elseif ($route === 'addPost'){ //NOTE addPost OK
-                    $this->backController->addPost($this->request->getPost()); //NOTE addPost OK
+                elseif ($route === 'addPost'){
+                    $this->backController->addPost($this->request->getPost());
+                }
+                elseif ($route === 'editPost'){
+                    $this->backController->editPost($this->request->getPost(), $this->request->getGet()->get('postId'));
                 }
                 else{
-                    echo "Page introuvable";
+                    echo "page introuvable";
                 }
             }
             else{

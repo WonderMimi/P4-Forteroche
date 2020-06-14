@@ -17,4 +17,17 @@ class BackController extends Controller
             'post' => $post
         ]);
     }
+
+    public function editPost(Parameter $post, $postId)
+    {
+        $article = $this->postManager->getPost($postId);
+        if($post->get('submit')) {
+            $this->postManager->editPost($post, $postId);
+            $this->session->set('edit_post', 'L\' article a bien été modifié');
+            header('Location: ../public/index.php');
+        }
+        return $this->view->render('edit_post', [
+            'post' => $article
+        ]);
+    }
 }

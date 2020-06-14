@@ -11,6 +11,9 @@
         <p><?= htmlspecialchars($post->getAuthor());?></p>
         <p>Créé le : <?= htmlspecialchars($post->getCreated_date());?></p>
     </div>
+    <div class="actions">
+        <a href="../public/index.php?route=editPost&postId=<?= $post->getId(); ?>">Modifier</a>
+    </div>
 
     <br>
 
