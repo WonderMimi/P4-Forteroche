@@ -17,7 +17,7 @@
 </figure>
 <div>
     <p>En construction</p>
-
+    <a href="../public/index.php?route=addPost">Ajouter un nouveau billet</a>
     <?php
     foreach ($posts as $post)
     {

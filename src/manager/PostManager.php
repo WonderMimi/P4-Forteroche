@@ -27,7 +27,7 @@ class PostManager extends DatabaseManager
         $result->closeCursor();
         return $posts;
     }
-   
+
     public function getPost($postId)  // gets a specific post based on its id
    {
        $sql = 'SELECT id, title, content, author, created_date FROM posts WHERE id = ?';
@@ -36,4 +36,11 @@ class PostManager extends DatabaseManager
        $result->closeCursor();
        return $this->buildObject($post);
    }
+
+   public function addPost($post)
+    {
+        extract($post);
+        $sql = 'INSERT INTO posts (title, content, author, created_date) VALUES (?, ?, ?, NOW())';
+        $this->createQuery($sql, [$title, $content, $author]);
+    }
 }
