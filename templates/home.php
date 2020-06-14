@@ -7,6 +7,7 @@
     </figcaption>
 </figure>
 <div>
+    <?= $this->session->show('add_post'); ?>
     <a href="../public/index.php?route=addPost">Ajouter un nouveau billet</a>
     <?php
     foreach ($posts as $post)

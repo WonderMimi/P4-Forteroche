@@ -1,27 +1,9 @@
 <?php
+
 require '../config/dev.php';
 require '../vendor/autoload.php';
 
-use P4\config\Router;
+session_start();
 
-$router = new Router();
+$router = new \P4\config\Router();
 $router->run();
-
-// try{
-//     if(isset($_GET['route']))
-//     {
-//         if($_GET['route'] === 'post'){
-//             require '../templates/single.php';
-//         }
-//         else{
-//             echo 'page inconnue';
-//         }
-//     }
-//     else{
-//         require '../templates/home.php';
-//     }
-// }
-// catch (Exception $e)
-// {
-//     echo 'Erreur';
-// }
