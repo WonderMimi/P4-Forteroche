@@ -1,27 +1,26 @@
 <?php $this->title = "Billet"; ?>
 
 <div>
-    <h1>Mes billets</h1>
-    <p>En construction</p>
+    <h2 class="page_title">Mes billets</h2>
 
-    <div>
-        <h2><?= htmlspecialchars($post->getTitle());?></h2>
-        <p><?= htmlspecialchars($post->getContent());?></p>
+    <div class="card">
+        <h3 class="card-header"><?= htmlspecialchars($post->getTitle());?></h3>
+        <div class="card-body">
+            <p class="card-text"><?= htmlspecialchars($post->getContent());?></p>
+        </div>
         <p><?= htmlspecialchars($post->getAuthor());?></p>
         <p>Créé le : <?= htmlspecialchars($post->getCreated_date());?></p>
     </div>
 
     <br>
 
-    <a href="../public/index.php">Retour à l'accueil</a>
-
-    <div id="comments" class="text-left" style="margin-left: 50px"> <!-- NOTE move to stylesheet -->
-        <h3>Commentaires</h3>
+    <div id="comments">
+        <h4>Commentaires</h4>
         <?php
         foreach($comments as $comment)
         {
             ?>
-            <h4><?= htmlspecialchars($comment->getAuthor());?></h4>
+            <h5><?= htmlspecialchars($comment->getAuthor());?></h5>
             <p><?= htmlspecialchars($comment->getComment());?></p>
             <p>Posté le <?= htmlspecialchars($comment->getCreated_date());?></p>
             <?php

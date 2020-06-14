@@ -1,6 +1,6 @@
 <?php $this->title = "Nouveau billet"; ?>
-<h1>Mon blog</h1>
-<p>En construction</p>
+<h2 class="page_title">Ajouter un nouveau billet</h2>
+
 <div>
     <form method="post" action="../public/index.php?route=addPost">
         <label for="title">Titre</label><br>
@@ -11,5 +11,4 @@
         <input type="text" id="author" name="author" placeholder="votre nom ou pseudo"><br>
         <input type="submit" value="Envoyer" id="submit" name="submit">
     </form>
-    <a href="../public/index.php">Retour à l'accueil</a>
 </div>
