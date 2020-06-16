@@ -8,8 +8,8 @@
         <div class="card-body">
             <p class="card-text"><?= htmlspecialchars($post->getContent());?></p>
         </div>
-        <p><?= htmlspecialchars($post->getAuthor());?></p>
-        <p>Créé le : <?= htmlspecialchars($post->getCreated_date());?></p>
+        <p class="author"><?= htmlspecialchars($post->getAuthor());?></p>
+        <p class="creation">Créé le : <?= htmlspecialchars($post->getCreated_date());?></p>
     </div>
     <div class="actions">
         <a href="../public/index.php?route=editPost&postId=<?= $post->getId(); ?>">Modifier</a>
