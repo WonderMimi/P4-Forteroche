@@ -4,26 +4,28 @@
     <img src="../public/img/alaska.jpg"></img>
     <figcaption>
         <h1>Billet simple pour l'Alaska</h1>
+        <a href="#" class="arrow">0</a>
     </figcaption>
 </figure>
+
 <div>
     <?= $this->session->show('add_post'); ?>
     <a href="../public/index.php?route=addPost">Ajouter un nouveau billet</a>
     <?= $this->session->show('edit_post'); ?>
 
+    <h2 class="page_title">Mes 5 derniers billets</h2>
     <?php
-    foreach ($posts as $post)
-    {
+    foreach ($posts as $post) {
     ?>
 
-    <div <div class="card">
-        <h2 class="card-header"><a href="../public/index.php?route=post&postId=<?= htmlspecialchars($post->getId());?>"><?= htmlspecialchars($post->getTitle());?></a></h2>
-        <div class="card-body">
-            <p><?= htmlspecialchars($post->getContent());?></p>
+        <div class="card">
+            <h2 class="card-header"><a href="../public/index.php?route=post&postId=<?= htmlspecialchars($post->getId()); ?>"><?= htmlspecialchars($post->getTitle()); ?></a></h2>
+            <div class="card-body">
+                <p><?= htmlspecialchars($post->getContent()); ?></p>
+            </div>
+            <p class="author"><?= htmlspecialchars($post->getAuthor()); ?></p>
+            <p class="creation">Créé le : <?= htmlspecialchars($post->getCreated_date()); ?></p>
         </div>
-        <p class="author"><?= htmlspecialchars($post->getAuthor());?></p>
-        <p class="creation">Créé le : <?= htmlspecialchars($post->getCreated_date());?></p>
-    </div>
 
     <?php
     }
