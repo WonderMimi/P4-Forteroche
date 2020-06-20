@@ -1,6 +1,8 @@
 <?php
 
 namespace P4\src\manager;
+
+use P4\config\Parameter;
 use P4\src\model\Comment;
 
 class CommentManager extends DatabaseManager
@@ -26,5 +28,11 @@ class CommentManager extends DatabaseManager
         }
         $result->closeCursor();
         return $comments;
+    }
+
+    public function addComment(Parameter $post, $postId)
+    {
+        $sql = 'INSERT INTO comments (author, comment, status, created_date, post_id) VALUES (?, ?, "autorisé" ,NOW(), ?)';
+        $this->createQuery($sql, [$post->get('author'), $post->get('comment'), $postId]);
     }
 }

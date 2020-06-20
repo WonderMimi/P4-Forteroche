@@ -32,6 +32,8 @@ class Router
                     $this->backController->editPost($this->request->getPost(), $this->request->getGet()->get('postId'));
                 } elseif ($route === 'deletePost') {
                     $this->backController->deletePost($this->request->getGet()->get('postId'));
+                } elseif ($route === 'addComment') {
+                    $this->frontController->addComment($this->request->getPost(), $this->request->getGet()->get('postId'));
                 } else {
                     echo "page introuvable";
                 }
