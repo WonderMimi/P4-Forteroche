@@ -4,7 +4,7 @@
     <img src="../public/img/alaska.jpg"></img>
     <figcaption>
         <h1>Billet simple pour l'Alaska</h1>
-        <a href="#" class="arrow">0</a>
+        <a href="#billets" class="arrow">0</a>
     </figcaption>
 </figure>
 
@@ -12,8 +12,9 @@
     <?= $this->session->show('add_post'); ?>
     <a href="../public/index.php?route=addPost">Ajouter un nouveau billet</a>
     <?= $this->session->show('edit_post'); ?>
+    <?= $this->session->show('delete_post'); ?>
 
-    <h2 class="page_title">Mes 5 derniers billets</h2>
+    <h2 id="billets" class="page_title">Mes 5 derniers billets</h2>
     <?php
     foreach ($posts as $post) {
     ?>

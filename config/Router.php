@@ -1,6 +1,7 @@
 <?php
 
 namespace P4\config;
+
 use P4\src\controller\BackController;
 use P4\src\controller\FrontController;
 use Exception;
@@ -21,28 +22,23 @@ class Router
     public function run()
     {
         $route = $this->request->getGet()->get('route');
-        try{
-            if(isset($route))
-            {
-                if($route === 'post'){
+        try {
+            if (isset($route)) {
+                if ($route === 'post') {
                     $this->frontController->post($this->request->getGet()->get('postId'));
-                }
-                elseif ($route === 'addPost'){
+                } elseif ($route === 'addPost') {
                     $this->backController->addPost($this->request->getPost());
-                }
-                elseif ($route === 'editPost'){
+                } elseif ($route === 'editPost') {
                     $this->backController->editPost($this->request->getPost(), $this->request->getGet()->get('postId'));
-                }
-                else{
+                } elseif ($route === 'deletePost') {
+                    $this->backController->deletePost($this->request->getGet()->get('postId'));
+                } else {
                     echo "page introuvable";
                 }
-            }
-            else{
+            } else {
                 $this->frontController->home();
             }
-        }
-        catch (Exception $e)
-        {
+        } catch (Exception $e) {
             echo "Erreur";
         }
     }

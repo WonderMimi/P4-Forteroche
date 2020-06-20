@@ -8,11 +8,9 @@ class BackController extends Controller
 {
     public function addPost(Parameter $post) //$post is all the data entered in the form
     {
-        if ($post->get('submit'))
-        {
+        if ($post->get('submit')) {
             $errors = $this->validation->validate($post, 'Post');
-            if(!$errors)
-            {
+            if (!$errors) {
                 $this->postManager->addPost($post);
                 $this->session->set('add_post', 'Le nouvel article a bien été ajouté');
                 header('Location: ../public/index.php');
@@ -28,8 +26,7 @@ class BackController extends Controller
     public function editPost(Parameter $post, $postId)
     {
         $article = $this->postManager->getPost($postId);
-        if($post->get('submit'))
-        {
+        if ($post->get('submit')) {
             $this->postManager->editPost($post, $postId);
             $this->session->set('edit_post', 'L\' article a bien été modifié');
             header('Location: ../public/index.php');
@@ -37,5 +34,12 @@ class BackController extends Controller
         return $this->view->render('edit_post', [
             'post' => $article
         ]);
+    }
+
+    public function deletePost($postId)
+    {
+        $this->postManager->deletePost($postId);
+        $this->session->set('delete_post', 'L\' article a bien été supprimé');
+        header('Location: ../public/index.php');
     }
 }
