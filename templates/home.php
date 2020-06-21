@@ -14,6 +14,7 @@
     <?= $this->session->show('delete_post'); ?>
     <?= $this->session->show('add_comment'); ?>
     <?= $this->session->show('flag_comment'); ?>
+    <?= $this->session->show('delete_comment'); ?>
 
     <a href="../public/index.php?route=addPost">Ajouter un nouveau billet</a>
 

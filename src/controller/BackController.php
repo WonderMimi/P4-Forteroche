@@ -27,12 +27,24 @@ class BackController extends Controller
     {
         $post = $this->postManager->getPost($postId);
         if ($form_post->get('submit')) {
-            $this->postManager->editPost($form_post, $postId);
-            $this->session->set('edit_post', 'Le billet a bien été modifié');
-            header('Location: ../public/index.php');
+            $errors = $this->validation->validate($form_post, 'Post');
+            if (!$errors) {
+                $this->postManager->editPost($form_post, $postId);
+                $this->session->set('edit_post', 'Le billet a bien été modifié');
+                header('Location: ../public/index.php');
+            }
+            return $this->view->render('edit_post', [
+                'form_post' => $form_post,
+                'errors' => $errors
+            ]);
         }
+        $form_post->set('id', $post->getId());
+        $form_post->set('title', $post->getTitle());
+        $form_post->set('content', $post->getContent());
+        $form_post->set('author', $post->getAuthor());
+
         return $this->view->render('edit_post', [
-            'post' => $post
+            'form_post' => $form_post
         ]);
     }
 
@@ -40,6 +52,13 @@ class BackController extends Controller
     {
         $this->postManager->deletePost($postId);
         $this->session->set('delete_post', 'Le billet a bien été supprimé');
+        header('Location: ../public/index.php');
+    }
+
+    public function deleteComment($commentId)
+    {
+        $this->commentManager->deleteComment($commentId);
+        $this->session->set('delete_comment', 'Le commentaire a bien été supprimé');
         header('Location: ../public/index.php');
     }
 }
