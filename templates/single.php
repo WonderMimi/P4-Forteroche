@@ -21,6 +21,7 @@
     <div id="comments">
         <h3>Ajouter un commentaire</h3>
         <?php include('form_comment.php'); ?>
+
         <h4>Commentaires</h4>
         <?php
         foreach ($comments as $comment) {

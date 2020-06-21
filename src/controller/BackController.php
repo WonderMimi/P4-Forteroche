@@ -6,7 +6,7 @@ use P4\config\Parameter;
 
 class BackController extends Controller
 {
-    public function addPost(Parameter $form_post) //$post is all the data entered in the form
+    public function addPost(Parameter $form_post) //$form_post is all the data entered in the form
     {
         if ($form_post->get('submit')) {
             $errors = $this->validation->validate($form_post, 'Post');

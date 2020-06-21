@@ -23,6 +23,7 @@ class Router
     {
         $route = $this->request->getGet()->get('route');
         try {
+            // echo "Tu es dans le try";  //TODO: a supprimer 
             if (isset($route)) {
                 if ($route === 'post') {
                     $this->frontController->post($this->request->getGet()->get('postId'));
@@ -45,7 +46,7 @@ class Router
                 $this->frontController->home();
             }
         } catch (Exception $e) {
-            echo "Tu as fait mauvaise route";
+            echo "Tu as fait mauvaise route";  //TODO: a modifier
         }
     }
 }

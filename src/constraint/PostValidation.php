@@ -14,7 +14,7 @@ class PostValidation extends Validation
         $this->constraint = new Constraint();
     }
 
-    public function check(Parameter $form_post) //gets all data via all method from Parameter class
+    public function check(Parameter $form_post) //gets all data via 'all' method from Parameter class
     {
         foreach ($form_post->all() as $key => $value) {
             $this->checkField($key, $value);
