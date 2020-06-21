@@ -1,10 +1,11 @@
 <?php $this->title = 'Administration'; ?>
 
-<h2>Espace d'administration</h2>
+<h2 class="page_title">Espace d'administration</h2>
 
 <?= $this->session->show('add_post'); ?>
 <?= $this->session->show('edit_post'); ?>
 <?= $this->session->show('delete_post'); ?>
+<?= $this->session->show('deleteFlag'); ?>
 
 <a href="../public/index.php?route=addPost">Ajouter un nouveau billet</a>
 
@@ -45,7 +46,7 @@
     <tr>
         <td>Id</td>
         <td>Pseudo</td>
-        <td>Message</td>
+        <td>Commentaire</td>
         <td>Date</td>
         <td>Actions</td>
     </tr>
@@ -57,6 +58,10 @@
             <td><?= htmlspecialchars($comment->getAuthor()); ?></td>
             <td><?= substr(htmlspecialchars($comment->getComment()), 0, 150); ?></td>
             <td>Créé le : <?= htmlspecialchars($comment->getCreated_date()); ?></td>
+            <td>
+                <a href="../public/index.php?route=deleteFlag&commentId=<?= $comment->getId(); ?>">Supprimer le flag</a>
+                <a href="../public/index.php?route=deleteComment&commentId=<?= $comment->getId(); ?>">Supprimer le commentaire</a>
+            </td>
         </tr>
     <?php
     }

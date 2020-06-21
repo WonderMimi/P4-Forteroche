@@ -43,6 +43,12 @@ class CommentManager extends DatabaseManager
         $this->createQuery($sql, [1, $commentId]);
     }
 
+    public function deleteFlag($commentId)
+    {
+        $sql = 'UPDATE comments SET flag = ? WHERE id = ?';
+        $this->createQuery($sql, [0, $commentId]);
+    }
+
     public function deleteComment($commentId)
     {
         $sql = 'DELETE FROM comments WHERE id = ?';

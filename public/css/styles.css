@@ -60,7 +60,6 @@ header {
 a:link,
 li a:visited {
   text-decoration: none;
-  color: var(--bglacier);
 }
 
 ul {
@@ -159,7 +158,7 @@ h1 {
   transform: scale(1.1);
 }
 
-.card-text + .btn {
+.card-text+.btn {
   background-color: var(--bglacier);
   float: right;
 }

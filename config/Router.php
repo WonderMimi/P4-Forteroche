@@ -23,7 +23,6 @@ class Router
     {
         $route = $this->request->getGet()->get('route');
         try {
-            // echo "Tu es dans le try";  //TODO: a supprimer 
             if (isset($route)) {
                 if ($route === 'post') {
                     $this->frontController->post($this->request->getGet()->get('postId'));
@@ -39,6 +38,8 @@ class Router
                     $this->frontController->flagComment($this->request->getGet()->get('commentId'));
                 } elseif ($route === 'deleteComment') {
                     $this->backController->deleteComment($this->request->getGet()->get('commentId'));
+                } elseif ($route === 'deleteFlag') {
+                    $this->backController->deleteFlag($this->request->getGet()->get('commentId'));
                 } elseif ($route === 'administration') {
                     $this->backController->administration();
                 } else {
@@ -48,7 +49,7 @@ class Router
                 $this->frontController->home();
             }
         } catch (Exception $e) {
-            echo $e;  //TODO: a modifier
+            echo $e;
         }
     }
 }

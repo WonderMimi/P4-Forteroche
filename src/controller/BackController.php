@@ -69,6 +69,13 @@ class BackController extends Controller
     {
         $this->commentManager->deleteComment($commentId);
         $this->session->set('delete_comment', 'Le commentaire a bien été supprimé');
-        header('Location: ../public/index.php');
+        header('Location: ../public/index.php?route=administration');
+    }
+
+    public function deleteFlag($commentId)
+    {
+        $this->commentManager->deleteFlag($commentId);
+        $this->session->set('deleteFlag', 'Le commentaire a bien été autorisé');
+        header('Location: ../public/index.php?route=administration');
     }
 }
