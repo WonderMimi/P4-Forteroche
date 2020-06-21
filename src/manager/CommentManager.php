@@ -34,7 +34,7 @@ class CommentManager extends DatabaseManager
     public function addComment(Parameter $form_post, $postId)
     {
         $sql = 'INSERT INTO comments(author, comment, created_date, flag, post_id, status) VALUES (?, ?,NOW(), ?, ?, "autorisé")';
-        $this->createQuery($sql, [$form_post->get('author'), $form_post->get('comment'), $postId]);
+        $this->createQuery($sql, [$form_post->get('author'), $form_post->get('comment'), 1, $postId]);
     }
 
     public function flagComment($commentId)

@@ -46,7 +46,7 @@ class Router
                 $this->frontController->home();
             }
         } catch (Exception $e) {
-            echo "Tu as fait mauvaise route";  //TODO: a modifier
+            echo $e;  //TODO: a modifier
         }
     }
 }
