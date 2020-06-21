@@ -39,6 +39,8 @@ class Router
                     $this->frontController->flagComment($this->request->getGet()->get('commentId'));
                 } elseif ($route === 'deleteComment') {
                     $this->backController->deleteComment($this->request->getGet()->get('commentId'));
+                } elseif ($route === 'administration') {
+                    $this->backController->administration();
                 } else {
                     echo "page introuvable";
                 }

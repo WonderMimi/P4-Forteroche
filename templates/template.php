@@ -21,6 +21,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item"><a href="../public/index.php"><span class="fa fa-home"></span> Accueil</a></li>
                 <li class="nav-item"><a href="#"><span class="fa fa-book"></span> Billets</a></li>
+                <li class="nav-item"><a href="../public/index.php?route=administration"><span class="fa fa-wrench"></span> Admin</a></li>
             </ul>
         </nav>
     </header>

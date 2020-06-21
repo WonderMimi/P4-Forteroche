@@ -6,6 +6,11 @@ use P4\config\Parameter;
 
 class BackController extends Controller
 {
+    public function administration()
+    {
+        return $this->view->render('administration');
+    }
+
     public function addPost(Parameter $form_post) //$form_post is all the data entered in the form
     {
         if ($form_post->get('submit')) {
