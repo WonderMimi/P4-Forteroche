@@ -9,14 +9,10 @@
 </figure>
 
 <div>
-    <?= $this->session->show('add_post'); ?>
-    <?= $this->session->show('edit_post'); ?>
-    <?= $this->session->show('delete_post'); ?>
-    <?= $this->session->show('add_comment'); ?>
-    <?= $this->session->show('flag_comment'); ?>
+
+
     <?= $this->session->show('delete_comment'); ?>
 
-    <a href="../public/index.php?route=addPost">Ajouter un nouveau billet</a>
 
     <h2 id="billets" class="page_title">Mes 5 derniers billets</h2>
     <?php

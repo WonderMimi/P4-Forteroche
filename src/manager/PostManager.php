@@ -63,4 +63,16 @@ class PostManager extends DatabaseManager
         $sql = 'DELETE FROM posts WHERE id=?';
         $this->createQuery($sql, [$postId]);
     }
+
+    public function getAllPosts()
+    {
+        $sql = 'SELECT id, title, content, author, created_date FROM posts ORDER BY id DESC';
+        $result = $this->createQuery($sql);
+        $posts = [];
+        foreach ($result as $row) {
+            $posts[$row['id']] = $this->buildObject($row);
+        }
+        $result->closeCursor();
+        return $posts;
+    }
 }

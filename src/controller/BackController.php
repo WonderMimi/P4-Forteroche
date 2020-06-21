@@ -8,7 +8,10 @@ class BackController extends Controller
 {
     public function administration()
     {
-        return $this->view->render('administration');
+        $posts = $this->postManager->getAllPosts();
+        return $this->view->render('administration', [
+            'posts' => $posts
+        ]);
     }
 
     public function addPost(Parameter $form_post) //$form_post is all the data entered in the form

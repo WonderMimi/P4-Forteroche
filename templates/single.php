@@ -11,11 +11,9 @@
         <p class="author"><?= htmlspecialchars($post->getAuthor()); ?></p>
         <p class="creation">Créé le : <?= htmlspecialchars($post->getCreated_date()); ?></p>
     </div>
-    <div class="actions">
-        <a href="../public/index.php?route=editPost&postId=<?= $post->getId(); ?>">Modifier le billet</a>
-        <a href="../public/index.php?route=deletePost&postId=<?= $post->getId(); ?>">Supprimer le billet</a>
-    </div>
 
+    <?= $this->session->show('add_comment'); ?>
+    <?= $this->session->show('flag_comment'); ?>
     <br>
 
     <div id="comments">
