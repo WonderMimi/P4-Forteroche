@@ -13,14 +13,16 @@
 <h4>Billets</h4>
 
 <table>
-    <tr>
-        <td>Id</td>
-        <td>Titre</td>
-        <td>Contenu</td>
-        <td>Auteur</td>
-        <td>Date</td>
-        <td>Actions</td>
-    </tr>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Titre</th>
+            <th>Contenu</th>
+            <th>Auteur</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
     <?php
     foreach ($posts as $post) {
     ?>
@@ -44,13 +46,15 @@
 <h4>Commentaires signalés</h4>
 
 <table>
-    <tr>
-        <td>Id</td>
-        <td>Pseudo</td>
-        <td>Commentaire</td>
-        <td>Date</td>
-        <td>Actions</td>
-    </tr>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Pseudo</th>
+            <th>Commentaire</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
     <?php
     foreach ($comments as $comment) {
     ?>
