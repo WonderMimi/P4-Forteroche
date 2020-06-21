@@ -42,6 +42,8 @@ class Router
                     $this->backController->deleteFlag($this->request->getGet()->get('commentId'));
                 } elseif ($route === 'administration') {
                     $this->backController->administration();
+                } elseif ($route === 'book') {
+                    $this->frontController->book();
                 } else {
                     echo "page introuvable";
                 }

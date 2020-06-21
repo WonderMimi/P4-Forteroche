@@ -51,4 +51,12 @@ class FrontController extends Controller
         $this->session->set('flag_comment', 'Le commentaire a bien été signalé');
         header('Location: ../public/index.php');
     }
+
+    public function book() //renders the page with all the posts
+    {
+        $posts = $this->postManager->getAllPosts();
+        return $this->view->render('book', [
+            'posts' => $posts
+        ]);
+    }
 }

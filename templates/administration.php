@@ -6,6 +6,7 @@
 <?= $this->session->show('edit_post'); ?>
 <?= $this->session->show('delete_post'); ?>
 <?= $this->session->show('deleteFlag'); ?>
+<?= $this->session->show('delete_comment'); ?>
 
 <a href="../public/index.php?route=addPost">Ajouter un nouveau billet</a>
 

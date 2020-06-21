@@ -8,13 +8,10 @@
     </figcaption>
 </figure>
 
-<div>
+<div class="separator" id="billets"></div>
+<section>
 
-
-    <?= $this->session->show('delete_comment'); ?>
-
-
-    <h2 id="billets" class="page_title">Mes 5 derniers billets</h2>
+    <h2 class="page_title">Mes 5 derniers billets</h2>
     <?php
     foreach ($posts as $post) {
     ?>
@@ -31,4 +28,4 @@
     <?php
     }
     ?>
-</div>
+</section>
