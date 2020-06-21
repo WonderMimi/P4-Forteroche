@@ -16,7 +16,7 @@ abstract class Controller
     protected $view;
     private $request;
     protected $get;
-    protected $post;
+    protected $form_post;
     protected $session;
     protected $validation;
 
@@ -28,7 +28,7 @@ abstract class Controller
         $this->validation = new Validation();
         $this->request = new Request();
         $this->get = $this->request->getGet();
-        $this->post = $this->request->getPost();
+        $this->form_post = $this->request->getFormPost();
         $this->session = $this->request->getSession();
     }
 }

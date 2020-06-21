@@ -27,13 +27,15 @@ class Router
                 if ($route === 'post') {
                     $this->frontController->post($this->request->getGet()->get('postId'));
                 } elseif ($route === 'addPost') {
-                    $this->backController->addPost($this->request->getPost());
+                    $this->backController->addPost($this->request->getFormPost());
                 } elseif ($route === 'editPost') {
-                    $this->backController->editPost($this->request->getPost(), $this->request->getGet()->get('postId'));
+                    $this->backController->editPost($this->request->getFormPost(), $this->request->getGet()->get('postId'));
                 } elseif ($route === 'deletePost') {
                     $this->backController->deletePost($this->request->getGet()->get('postId'));
                 } elseif ($route === 'addComment') {
-                    $this->frontController->addComment($this->request->getPost(), $this->request->getGet()->get('postId'));
+                    $this->frontController->addComment($this->request->getFormPost(), $this->request->getGet()->get('postId'));
+                } elseif ($route === 'flagComment') {
+                    $this->frontController->flagComment($this->request->getGet()->get('commentId'));
                 } else {
                     echo "page introuvable";
                 }
@@ -41,7 +43,7 @@ class Router
                 $this->frontController->home();
             }
         } catch (Exception $e) {
-            echo "Erreur";
+            echo "Tu as fait mauvaise route";
         }
     }
 }

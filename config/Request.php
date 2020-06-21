@@ -5,13 +5,13 @@ namespace P4\config;
 class Request
 {
     private $get;
-    private $post;
+    private $form_post;
     private $session;
 
     public function __construct()
     {
         $this->get = new Parameter($_GET);
-        $this->post = new Parameter($_POST);
+        $this->form_post = new Parameter($_POST);
         $this->session = new Session($_SESSION);
     }
 
@@ -20,9 +20,9 @@ class Request
         return $this->get;
     }
 
-    public function getPost()
+    public function getFormPost()
     {
-        return $this->post;
+        return $this->form_post;
     }
 
     public function getSession()

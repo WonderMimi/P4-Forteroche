@@ -18,7 +18,7 @@ class PostManager extends DatabaseManager
         return $post;
     }
 
-    public function getPosts()
+    public function getPosts() // gets last 5 posts
     {
         $sql = 'SELECT id, title, content, author, created_date FROM posts ORDER BY id DESC LIMIT 5';
         $result = $this->createQuery($sql);
@@ -39,19 +39,19 @@ class PostManager extends DatabaseManager
         return $this->buildObject($post);
     }
 
-    public function addPost(Parameter $post)
+    public function addPost(Parameter $form_post)
     {
         $sql = 'INSERT INTO posts (title, content, author, created_date) VALUES (?, ?, ?, NOW())';
-        $this->createQuery($sql, [$post->get('title'), $post->get('content'), $post->get('author')]);
+        $this->createQuery($sql, [$form_post->get('title'), $form_post->get('content'), $form_post->get('author')]);
     }
 
-    public function editPost(Parameter $post, $postId)
+    public function editPost(Parameter $form_post, $postId)
     {
         $sql = 'UPDATE posts SET title=:title, content=:content, author=:author WHERE id=:postId';
         $this->createQuery($sql, [
-            'title' => $post->get('title'),
-            'content' => $post->get('content'),
-            'author' => $post->get('author'),
+            'title' => $form_post->get('title'),
+            'content' => $form_post->get('content'),
+            'author' => $form_post->get('author'),
             'postId' => $postId
         ]);
     }

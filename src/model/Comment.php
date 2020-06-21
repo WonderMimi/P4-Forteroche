@@ -9,6 +9,7 @@ class Comment
     private $author;
     private $comment;
     private $created_date;
+    private $flag;
 
     public function getId()
     {
@@ -48,5 +49,15 @@ class Comment
     public function setCreated_date($created_date)
     {
         $this->created_date = $created_date;
+    }
+
+    public function isFlagged()
+    {
+        return $this->flag;
+    }
+
+    public function setFlag($flag)
+    {
+        $this->flag = $flag;
     }
 }

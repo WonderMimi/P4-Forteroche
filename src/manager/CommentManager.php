@@ -14,12 +14,13 @@ class CommentManager extends DatabaseManager
         $comment->setAuthor($row['author']);
         $comment->setComment($row['comment']);
         $comment->setCreated_date($row['created_date']);
+        $comment->setFlag($row['flag']);
         return $comment;
     }
 
     public function getCommentsFromPost($postId)
     {
-        $sql = 'SELECT id, author, comment, created_date FROM comments WHERE post_id = ? ORDER BY created_date DESC';
+        $sql = 'SELECT id, author, comment, created_date, flag FROM comments WHERE post_id = ? ORDER BY created_date DESC';
         $result = $this->createQuery($sql, [$postId]);
         $comments = [];
         foreach ($result as $row) {
@@ -30,9 +31,21 @@ class CommentManager extends DatabaseManager
         return $comments;
     }
 
-    public function addComment(Parameter $post, $postId)
+    public function addComment(Parameter $form_post, $postId)
     {
-        $sql = 'INSERT INTO comments (author, comment, status, created_date, post_id) VALUES (?, ?, "autorisé" ,NOW(), ?)';
-        $this->createQuery($sql, [$post->get('author'), $post->get('comment'), $postId]);
+        $sql = 'INSERT INTO comments(author, comment, created_date, flag, post_id, status) VALUES (?, ?,NOW(), ?, ?, "autorisé")';
+        $this->createQuery($sql, [$form_post->get('author'), $form_post->get('comment'), $postId]);
+    }
+
+    public function flagComment($commentId)
+    {
+        $sql = 'UPDATE comments SET flag = ? WHERE id = ?';
+        $this->createQuery($sql, [1, $commentId]);
+    }
+
+    public function deleteComment($commentId)
+    {
+        $sql = 'DELETE FROM comments WHERE id = ?';
+        $this->createQuery($sql, [$commentId]);
     }
 }

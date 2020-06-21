@@ -12,8 +12,8 @@
         <p class="creation">Créé le : <?= htmlspecialchars($post->getCreated_date()); ?></p>
     </div>
     <div class="actions">
-        <a href="../public/index.php?route=editPost&postId=<?= $post->getId(); ?>">Modifier</a>
-        <a href="../public/index.php?route=deletePost&postId=<?= $post->getId(); ?>">Supprimer</a>
+        <a href="../public/index.php?route=editPost&postId=<?= $post->getId(); ?>">Modifier le billet</a>
+        <a href="../public/index.php?route=deletePost&postId=<?= $post->getId(); ?>">Supprimer le billet</a>
     </div>
 
     <br>
@@ -28,6 +28,18 @@
             <h5><?= htmlspecialchars($comment->getAuthor()); ?></h5>
             <p><?= htmlspecialchars($comment->getComment()); ?></p>
             <p>Posté le <?= htmlspecialchars($comment->getCreated_date()); ?></p>
+            <?php
+            if ($comment->isFlagged()) {
+            ?>
+                <p>Ce commentaire a déjà été signalé</p>
+            <?php
+            } else {
+            ?>
+                <p><a href="../public/index.php?route=flagComment&commentId=<?= $comment->getId(); ?>">Signaler le commentaire</a></p>
+            <?php
+            }
+            ?>
+            <br>
         <?php
         }
         ?>

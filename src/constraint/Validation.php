@@ -6,9 +6,13 @@ class Validation
 {
     public function validate($data, $name) // Called from the Controller class
     {
-        if($name === 'Post') {
+        if ($name === 'Post') {
             $postValidation = new PostValidation();
             $errors = $postValidation->check($data);
+            return $errors;
+        } elseif ($name === 'Comment') {
+            $commentValidation = new CommentValidation();
+            $errors = $commentValidation->check($data);
             return $errors;
         }
     }
