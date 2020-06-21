@@ -21,7 +21,7 @@ class BackController extends Controller
             if (!$errors) {
                 $this->postManager->addPost($form_post);
                 $this->session->set('add_post', 'Le nouvel article a bien été ajouté');
-                header('Location: ../public/index.php');
+                header('Location: ../public/index.php?route=administration');
             }
             return $this->view->render('add_post', [
                 'form_post' => $form_post,
@@ -39,7 +39,7 @@ class BackController extends Controller
             if (!$errors) {
                 $this->postManager->editPost($form_post, $postId);
                 $this->session->set('edit_post', 'Le billet a bien été modifié');
-                header('Location: ../public/index.php');
+                header('Location: ../public/index.php?route=administration');
             }
             return $this->view->render('edit_post', [
                 'form_post' => $form_post,
@@ -60,7 +60,7 @@ class BackController extends Controller
     {
         $this->postManager->deletePost($postId);
         $this->session->set('delete_post', 'Le billet a bien été supprimé');
-        header('Location: ../public/index.php');
+        header('Location: ../public/index.php?route=administration');
     }
 
     public function deleteComment($commentId)
