@@ -48,4 +48,17 @@ class CommentManager extends DatabaseManager
         $sql = 'DELETE FROM comments WHERE id = ?';
         $this->createQuery($sql, [$commentId]);
     }
+
+    public function getFlaggedComments()
+    {
+        $sql = 'SELECT id, author, comment, created_date, flag FROM comments WHERE flag = ? ORDER BY created_date DESC';
+        $result = $this->createQuery($sql, [1]);  // Gets only comments with a flag
+        $comments = [];
+        foreach ($result as $row) {
+            $commentId = $row['id'];
+            $comments[$commentId] = $this->buildObject($row);
+        }
+        $result->closeCursor();
+        return $comments;
+    }
 }

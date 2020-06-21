@@ -9,8 +9,10 @@ class BackController extends Controller
     public function administration()
     {
         $posts = $this->postManager->getAllPosts();
+        $comments = $this->commentManager->getFlaggedComments();
         return $this->view->render('administration', [
-            'posts' => $posts
+            'posts' => $posts,
+            'comments' => $comments
         ]);
     }
 
