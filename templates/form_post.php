@@ -10,7 +10,7 @@ $submit = $route === 'addPost' ? 'Envoyer' : 'Mettre à jour';
     <?= isset($errors['title']) ? $errors['title'] : ''; ?>
 
     <label for="content">Contenu</label><br>
-    <textarea id="content" name="content"><?= isset($form_post) ? htmlspecialchars($form_post->get('content')) : ''; ?></textarea><br>
+    <textarea class="tiny_text" id="content" name="content"><?= isset($form_post) ? htmlspecialchars($form_post->get('content')) : ''; ?></textarea><br>
     <?= isset($errors['content']) ? $errors['content'] : ''; ?>
 
     <label for="author">Auteur</label><br>
