@@ -4,6 +4,7 @@
     <img src="../public/img/alaska.jpg"></img>
     <figcaption>
         <h1>Billet simple pour l'Alaska</h1>
+        <p id="subtitle">Un roman de Jean Forteroche</p>
         <a href="#billets" class="arrow">0</a>
     </figcaption>
 </figure>

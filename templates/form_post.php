@@ -1,6 +1,5 @@
 <?php
 $route = isset($post) && $post->getId() ? 'editPost&postId=' . $post->getId() : 'addPost';
-$submit = $route === 'addPost' ? 'Envoyer' : 'Mettre à jour';
 ?>
 
 <form method="post" action="../public/index.php?route=<?= $route; ?>">
@@ -17,5 +16,5 @@ $submit = $route === 'addPost' ? 'Envoyer' : 'Mettre à jour';
     <input type="text" id="author" name="author" value="<?= isset($form_post) ? htmlspecialchars($form_post->get('author')) : ''; ?>"><br>
     <?= isset($errors['author']) ? $errors['author'] : ''; ?>
 
-    <input type="submit" value="<?= $submit; ?>" id="submit" name="submit">
+    <input type="submit" value="Valider" id="submit" name="submit">
 </form>

@@ -15,12 +15,12 @@
 <table>
     <thead>
         <tr>
-            <th>Id</th>
-            <th>Titre</th>
-            <th>Contenu</th>
-            <th>Auteur</th>
-            <th>Date</th>
-            <th>Actions</th>
+            <th id="B1">Id</th>
+            <th id="B2">Titre</th>
+            <th id="B3">Contenu</th>
+            <th id="B4">Auteur</th>
+            <th id="B5">Date création</th>
+            <th id="B6">Actions</th>
         </tr>
     </thead>
     <?php
@@ -29,12 +29,12 @@
         <tr>
             <td><?= htmlspecialchars($post->getId()); ?></td>
             <td><a href="../public/index.php?route=post&postId=<?= htmlspecialchars($post->getId()); ?>"><?= htmlspecialchars($post->getTitle()); ?></a></td>
-            <td><?= substr(htmlspecialchars($post->getContent()), 0, 150); ?></td>
+            <td><?= substr(htmlspecialchars($post->getContent()), 0, 100); ?></td>
             <td><?= htmlspecialchars($post->getAuthor()); ?></td>
-            <td>Créé le : <?= htmlspecialchars($post->getCreated_date()); ?></td>
+            <td><?= htmlspecialchars($post->getCreated_date()); ?></td>
             <td>
-                <a href="../public/index.php?route=editPost&postId=<?= $post->getId(); ?>">Modifier le billet</a>
-                <a href="../public/index.php?route=deletePost&postId=<?= $post->getId(); ?>">Supprimer le billet</a>
+                <a href="../public/index.php?route=editPost&postId=<?= $post->getId(); ?>">Modifier</a>
+                <a href="../public/index.php?route=deletePost&postId=<?= $post->getId(); ?>">Supprimer</a>
             </td>
         </tr>
     <?php
@@ -48,11 +48,11 @@
 <table>
     <thead>
         <tr>
-            <th>Id</th>
-            <th>Pseudo</th>
-            <th>Commentaire</th>
-            <th>Date</th>
-            <th>Actions</th>
+            <th id="C1">Id</th>
+            <th id="C2">Pseudo</th>
+            <th id="C3">Commentaire</th>
+            <th id="C4">Date création</th>
+            <th id="C5">Actions</th>
         </tr>
     </thead>
     <?php
@@ -62,10 +62,10 @@
             <td><?= htmlspecialchars($comment->getId()); ?></td>
             <td><?= htmlspecialchars($comment->getAuthor()); ?></td>
             <td><?= substr(htmlspecialchars($comment->getComment()), 0, 150); ?></td>
-            <td>Créé le : <?= htmlspecialchars($comment->getCreated_date()); ?></td>
+            <td><?= htmlspecialchars($comment->getCreated_date()); ?></td>
             <td>
-                <a href="../public/index.php?route=deleteFlag&commentId=<?= $comment->getId(); ?>">Supprimer le flag</a>
-                <a href="../public/index.php?route=deleteComment&commentId=<?= $comment->getId(); ?>">Supprimer le commentaire</a>
+                <a href="../public/index.php?route=deleteFlag&commentId=<?= $comment->getId(); ?>">Valider</a>
+                <a href="../public/index.php?route=deleteComment&commentId=<?= $comment->getId(); ?>">Refuser</a>
             </td>
         </tr>
     <?php
