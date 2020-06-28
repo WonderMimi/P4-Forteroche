@@ -21,4 +21,16 @@ class UserManager extends DatabaseManager
             return '<p>Ce pseudo existe déjà</p>';
         }
     }
+
+    public function login(Parameter $form_post) // checks is pseudo already exists in DB users table
+    {
+        $sql = 'SELECT id, password FROM users WHERE pseudo = ?';
+        $data = $this->createQuery($sql, [$form_post->get('pseudo')]);
+        $result = $data->fetch();
+        $isPasswordValid = password_verify($form_post->get('password'), $result['password']);
+        return [
+            'result' => $result,
+            'isPasswordValid' => $isPasswordValid
+        ];
+    }
 }

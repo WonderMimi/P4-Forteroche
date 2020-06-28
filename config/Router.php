@@ -42,7 +42,9 @@ class Router
                     $this->backController->deleteFlag($this->request->getGet()->get('commentId'));
                 } elseif($route === 'register'){
                     $this->frontController->register($this->request->getFormPost());
-                }elseif ($route === 'administration') {
+                } elseif($route === 'login'){
+                    $this->frontController->login($this->request->getFormPost());
+                } elseif ($route === 'administration') {
                     $this->backController->administration();
                 } elseif ($route === 'book') {
                     $this->frontController->book();

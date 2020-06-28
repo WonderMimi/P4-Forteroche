@@ -13,6 +13,7 @@
 <section>
 
     <?= $this->session->show('register'); ?>
+    <?= $this->session->show('login'); ?>
 
 
     <h2 class="page_title">Mes 5 derniers billets</h2>
