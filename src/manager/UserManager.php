@@ -8,8 +8,9 @@ class UserManager extends DatabaseManager
 {
     public function register(Parameter $form_post)
     {
-        $sql = 'INSERT INTO users (pseudo, password, created_date) VALUES (?, ?, NOW())';
-        $this->createQuery($sql, [$form_post->get('pseudo'), password_hash($form_post->get('password'), PASSWORD_BCRYPT)]);
+        // $this->checkUserName($form_post);
+        $sql = 'INSERT INTO users (pseudo, password, created_date, role_id) VALUES (?, ?, NOW(), ?)';
+        $this->createQuery($sql, [$form_post->get('pseudo'), password_hash($form_post->get('password'), PASSWORD_BCRYPT), 2]);  // our users are by default in the "member" group
     }
 
     public function checkUserName(Parameter $form_post)
@@ -24,7 +25,13 @@ class UserManager extends DatabaseManager
 
     public function login(Parameter $form_post) // checks is pseudo already exists in DB users table
     {
-        $sql = 'SELECT id, password FROM users WHERE pseudo = ?';
+        $sql = <<<SQL
+        SELECT users.id, users.role_id, users.password, groups.role
+        FROM users
+        INNER JOIN groups
+        ON groups.id  = users.role_id
+        WHERE pseudo = ?
+SQL;
         $data = $this->createQuery($sql, [$form_post->get('pseudo')]);
         $result = $data->fetch();
         $isPasswordValid = password_verify($form_post->get('password'), $result['password']);

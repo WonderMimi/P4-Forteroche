@@ -90,6 +90,7 @@ class FrontController extends Controller
         if($result && $result['isPasswordValid']) {
             $this->session->set('login', 'Content de vous revoir');
             $this->session->set('id', $result['result']['id']);
+            $this->session->set('groups', $result['result']['role']);
             $this->session->set('pseudo', $form_post->get('pseudo'));
             header('Location: ../public/index.php');
         }
