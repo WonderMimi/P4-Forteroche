@@ -23,17 +23,22 @@
             <ul class="navbar-nav">
                 <li class="nav-item"><a href="../public/index.php"><span class="fa fa-home"></span> Accueil</a></li>
                 <li class="nav-item"><a href="../public/index.php?route=book"><span class="fa fa-book"></span> Roman</a></li>
-                <?php
-                if ($this->session->get('pseudo') && ($this->session->get('groups') === 'admin') ) {
-                ?>
-                <li class="nav-item">
-                    <a href="../public/index.php?route=administration"><span class="fa fa-wrench"> Admin</span></a>
-                </li>
-                <?php
+
+                <?php if ($this->session->get('pseudo')) { ?>
+
+                    <li class="nav-item"><a href="../public/index.php?route=logout">Déconnexion</a></li>
+
+                    <?php if ($this->session->get('groups') === 'admin') { ?>
+
+                        <li class="nav-item"><a href="../public/index.php?route=administration"><span class="fa fa-wrench"> Admin</span></a></li>
+
+                    <?php }
                 } else {
-                ?>
-                <li class="nav-item"><a href="../public/index.php?route=register">Inscription</a></li>
-                <li class="nav-item"><a href="../public/index.php?route=login">Connexion</a></li>
+                    ?>
+
+                    <li class="nav-item"><a href="../public/index.php?route=register">Inscription</a></li>
+                    <li class="nav-item"><a href="../public/index.php?route=login">Connexion</a></li>
+
                 <?php
                 }
                 ?>

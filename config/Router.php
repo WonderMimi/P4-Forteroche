@@ -40,10 +40,12 @@ class Router
                     $this->backController->deleteComment($this->request->getGet()->get('commentId'));
                 } elseif ($route === 'deleteFlag') {
                     $this->backController->deleteFlag($this->request->getGet()->get('commentId'));
-                } elseif($route === 'register'){
+                } elseif ($route === 'register') {
                     $this->frontController->register($this->request->getFormPost());
-                } elseif($route === 'login'){
+                } elseif ($route === 'login') {
                     $this->frontController->login($this->request->getFormPost());
+                } elseif ($route === 'logout') {
+                    $this->backController->logout();
                 } elseif ($route === 'administration') {
                     $this->backController->administration();
                 } elseif ($route === 'book') {

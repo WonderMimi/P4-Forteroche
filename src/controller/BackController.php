@@ -78,4 +78,10 @@ class BackController extends Controller
         $this->session->set('deleteFlag', 'Le commentaire a bien été autorisé');
         header('Location: ../public/index.php?route=administration');
     }
+
+    public function logout()
+    {
+        $this->session->stop();
+        header('Location: ../public/index.php');
+    }
 }
