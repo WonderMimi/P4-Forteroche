@@ -40,7 +40,9 @@ class Router
                     $this->backController->deleteComment($this->request->getGet()->get('commentId'));
                 } elseif ($route === 'deleteFlag') {
                     $this->backController->deleteFlag($this->request->getGet()->get('commentId'));
-                } elseif ($route === 'administration') {
+                } elseif($route === 'register'){
+                    $this->frontController->register($this->request->getFormPost());
+                }elseif ($route === 'administration') {
                     $this->backController->administration();
                 } elseif ($route === 'book') {
                     $this->frontController->book();

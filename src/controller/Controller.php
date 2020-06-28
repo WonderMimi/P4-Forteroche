@@ -8,6 +8,8 @@ use P4\src\constraint\Validation;
 use P4\src\manager\PostManager;
 use P4\src\manager\CommentManager;
 use P4\src\model\View;
+use P4\src\manager\UserManager;
+
 
 abstract class Controller
 {
@@ -19,6 +21,7 @@ abstract class Controller
     protected $form_post;
     protected $session;
     protected $validation;
+    protected $userManager;
 
     public function __construct()
     {
@@ -30,5 +33,6 @@ abstract class Controller
         $this->get = $this->request->getGet();
         $this->form_post = $this->request->getFormPost();
         $this->session = $this->request->getSession();
+        $this->userManager = new UserManager();
     }
 }

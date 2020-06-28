@@ -59,4 +59,24 @@ class FrontController extends Controller
             'posts' => $posts
         ]);
     }
+
+    public function register(Parameter $form_post)
+    {
+        if ($form_post->get('submit')) {
+            $errors = $this->validation->validate($form_post, 'User');
+            if ($this->userManager->checkUserName($form_post)) {  // calls checkUserName method from UserManager to make sure username send via form is unique
+                $errors['pseudo'] = $this->userManager->checkUserName($form_post);
+            }
+            if (!$errors) {
+                $this->userManager->register($form_post);
+                $this->session->set('register', 'Vous êtes maintenant inscrit(e)');
+                header('Location: ../public/index.php');
+            }
+            return $this->view->render('register', [
+                'form_post' => $form_post,
+                'errors' => $errors
+            ]);
+        }
+        return $this->view->render('register');
+    }
 }

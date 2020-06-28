@@ -12,6 +12,9 @@
 <div class="separator" id="billets"></div>
 <section>
 
+    <?= $this->session->show('register'); ?>
+
+
     <h2 class="page_title">Mes 5 derniers billets</h2>
     <?php
     foreach ($posts as $post) {

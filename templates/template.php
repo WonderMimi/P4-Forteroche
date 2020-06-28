@@ -22,7 +22,9 @@
             <ul class="navbar-nav">
                 <li class="nav-item"><a href="../public/index.php"><span class="fa fa-home"></span> Accueil</a></li>
                 <li class="nav-item"><a href="../public/index.php?route=book"><span class="fa fa-book"></span> Roman</a></li>
-                <li class="nav-item"><a href="../public/index.php?route=administration"><span class="fa fa-wrench"></span> Admin</a></li>
+                <li class="nav-item"><a href="../public/index.php?route=administration"><span class="fa fa-wrench"> Admin</span></a></li>
+                <li class="nav-item"><a href="../public/index.php?route=register">Inscription</a></li>
+                <li class="nav-item"><a href="../public/index.php?route=login">Connexion</a></li>
             </ul>
         </nav>
     </header>
