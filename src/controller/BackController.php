@@ -22,7 +22,7 @@ class BackController extends Controller
             $errors = $this->validation->validate($form_post, 'Post');
             if (!$errors) {
                 $this->postManager->addPost($form_post);
-                $this->session->set('add_post', 'Le nouvel article a bien été ajouté');
+                $this->session->set('add_post', 'Le nouveau billet a bien été ajouté');
                 header('Location: ../public/index.php?route=administration');
             }
             return $this->view->render('add_post', [

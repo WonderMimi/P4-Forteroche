@@ -24,10 +24,10 @@
         <div class="card">
             <h2 class="card-header"><a href="../public/index.php?route=post&postId=<?= htmlspecialchars($post->getId()); ?>"><?= htmlspecialchars($post->getTitle()); ?></a></h2>
             <div class="card-body">
-                <p><?= htmlspecialchars($post->getContent()); ?></p>
+                <p><?= ($post->getContent()); ?></p>
             </div>
-            <p class="author"><?= htmlspecialchars($post->getAuthor()); ?></p>
-            <p class="creation">Créé le : <?= htmlspecialchars($post->getCreated_date()); ?></p>
+            <p class="author"><?= ($post->getAuthor()); ?></p>
+            <p class="creation">Créé le : <?= ($post->getCreated_date()); ?></p>
         </div>
 
     <?php

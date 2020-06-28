@@ -4,12 +4,12 @@
     <h2 class="page_title">Mes billets</h2>
 
     <div class="card">
-        <h3 class="card-header"><?= htmlspecialchars($post->getTitle()); ?></h3>
+        <h3 class="card-header"><?= ($post->getTitle()); ?></h3>
         <div class="card-body">
-            <p class="card-text"><?= htmlspecialchars($post->getContent()); ?></p>
+            <p class="card-text"><?= ($post->getContent()); ?></p>
         </div>
-        <p class="author"><?= htmlspecialchars($post->getAuthor()); ?></p>
-        <p class="creation">Créé le : <?= htmlspecialchars($post->getCreated_date()); ?></p>
+        <p class="author"><?= ($post->getAuthor()); ?></p>
+        <p class="creation">Créé le : <?= ($post->getCreated_date()); ?></p>
     </div>
 
     <?= $this->session->show('add_comment'); ?>

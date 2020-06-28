@@ -29,8 +29,8 @@
         <tr>
             <td><?= htmlspecialchars($post->getId()); ?></td>
             <td><a href="../public/index.php?route=post&postId=<?= htmlspecialchars($post->getId()); ?>"><?= htmlspecialchars($post->getTitle()); ?></a></td>
-            <td><?= substr(htmlspecialchars($post->getContent()), 0, 100); ?></td>
-            <td><?= htmlspecialchars($post->getAuthor()); ?></td>
+            <td><?= substr(($post->getContent()), 0, 100); ?></td>
+            <td><?= ($post->getAuthor()); ?></td>
             <td><?= htmlspecialchars($post->getCreated_date()); ?></td>
             <td>
                 <a href="../public/index.php?route=editPost&postId=<?= $post->getId(); ?>">Modifier</a>
