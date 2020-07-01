@@ -44,7 +44,7 @@ class BackController extends Controller
                 header('Location: ../public/index.php?route=administration');
             }
             return $this->view->render('edit_post', [
-                'form_post' => $form_post,
+                'post' => $post,
                 'errors' => $errors
             ]);
         }
@@ -52,10 +52,9 @@ class BackController extends Controller
         $form_post->set('title', $post->getTitle());
         $form_post->set('content', $post->getContent());
         $form_post->set('author', $post->getAuthor());
-
-        return $this->view->render('edit_post', [
-            'form_post' => $form_post
-        ]);
+            return $this->view->render('edit_post', [
+                'form_post' => $form_post
+            ]);
     }
 
     public function deletePost($postId)

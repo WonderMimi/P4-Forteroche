@@ -1,5 +1,5 @@
 <?php
-$route = isset($post) && $post->getId() ? 'editPost&postId=' . $post->getId() : 'addPost';
+$route = isset($form_post) && $form_post->get('id') ? 'editPost&postId=' . $form_post->get('id') : 'addPost';
 $submit = $route === 'addPost' ? 'Envoyer' : 'Mettre à jour';
 ?>
 

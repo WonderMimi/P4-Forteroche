@@ -173,11 +173,12 @@ h1 {
   -webkit-box-shadow: 4px 4px 5px 0px var(--bfonce);
   box-shadow: 4px 4px 5px 0px var(--bfonce);
   background: #fff;
-  transition: all 0.5s ease-out;
+  /* transition: all 0.5s ease-out; */
 }
 
 .card:hover {
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
+  border: var(--bclair) 2px solid;
 }
 
 .card-text+.btn {
@@ -215,6 +216,10 @@ textarea {
 }
 
 /*================================  ADMIN  ==================================*/
+#admin_body {
+    margin-left: 2rem;
+    margin-right: 2rem;  
+}
 
 table {
   width: 100%;
@@ -291,4 +296,18 @@ width: 8%;
 
 #C5 {
 width: 8%;
+}
+
+.filter form {
+    color: var(--bglacier);
+    margin-left: 0;
+}
+
+input[type=radio] {
+    width: 1.5rem;
+}
+
+input[value=Filtrer] {
+    margin-left: 15px;
+    max-width: 8%;
 }
