@@ -30,7 +30,7 @@
             <tr>
                 <td><?= htmlspecialchars($post->getId()); ?></td>
                 <td><a href="../public/index.php?route=post&postId=<?= htmlspecialchars($post->getId()); ?>"><?= htmlspecialchars($post->getTitle()); ?></a></td>
-                <td><?= substr(($post->getContent()), 0, 100); ?></td>
+                <td><?= substr(($post->getContent()), 0, 240); ?></td>
                 <td><?= ($post->getAuthor()); ?></td>
                 <td><?= htmlspecialchars($post->getCreated_date()); ?></td>
                 <td>

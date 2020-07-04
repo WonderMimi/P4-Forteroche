@@ -10,21 +10,21 @@
 </figure>
 
 <div class="separator" id="billets"></div>
-<section>
+<section id="home-section">
 
     <?= $this->session->show('register'); ?>
     <?= $this->session->show('login'); ?>
 
 
-    <h2 class="page_title">Mes 5 derniers billets</h2>
+    <h2 class="page_title">Mes 5 derniers chapitres</h2>
     <?php
     foreach ($posts as $post) {
     ?>
 
         <div class="card">
-            <h2 class="card-header"><a href="../public/index.php?route=post&postId=<?= htmlspecialchars($post->getId()); ?>"><?= htmlspecialchars($post->getTitle()); ?></a></h2>
+            <h2 class="card-header"><a class="card-title" href="../public/index.php?route=post&postId=<?= htmlspecialchars($post->getId()); ?>"><?= htmlspecialchars($post->getTitle()); ?></a></h2>
             <div class="card-body">
-                <p><?= ($post->getContent()); ?></p>
+                <p><?= substr($post->getContent(), 0, 800); ?></p>
             </div>
             <p class="author"><?= ($post->getAuthor()); ?></p>
             <p class="creation">Créé le : <?= ($post->getCreated_date()); ?></p>

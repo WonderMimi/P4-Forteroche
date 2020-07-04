@@ -1,10 +1,10 @@
 <?php $this->title = "Billet"; ?>
 
 <div>
-    <h2 class="page_title">Mes billets</h2>
+    <h2 class="page_title">Chapitre</h2>
 
     <div class="card">
-        <h3 class="card-header"><?= ($post->getTitle()); ?></h3>
+        <h3 class="card-header card-title"><?= ($post->getTitle()); ?></h3>
         <div class="card-body">
             <p class="card-text"><?= ($post->getContent()); ?></p>
         </div>
