@@ -81,4 +81,28 @@
         }
         ?>
     </table>
+
+    <h4>Utilisateurs</h4>
+    <table id="users-table">
+        <thead>
+            <tr>
+                <th id="U1">Id</th>
+                <th id="U2">Pseudo</th>
+                <th id="U3">Rôle</th>
+                <th id="U4">Date création</th>
+            </tr>
+        </thead>
+        <?php
+        foreach ($users as $user) {
+        ?>
+            <tr>
+                <td><?= htmlspecialchars($user->getId()); ?></td>
+                <td><?= htmlspecialchars($user->getPseudo()); ?></td>
+                <td><?= htmlspecialchars($user->getRole()); ?></td>
+                <td><?= htmlspecialchars($user->getCreated_date()); ?></td>
+            </tr>
+        <?php
+        }
+        ?>
+    </table>
 </section>

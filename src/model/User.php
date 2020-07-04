@@ -9,6 +9,7 @@ class User
     private $pseudo;
     private $password;
     private $created_date;
+    private $role;
 
     public function getId()
     {
@@ -48,5 +49,15 @@ class User
     public function setCreated_date($created_date)
     {
         $this->created_date = $created_date;
+    }
+
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    public function setRole($role)
+    {
+        $this->role = $role;
     }
 }
