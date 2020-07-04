@@ -18,3 +18,6 @@ foreach ($posts as $post) {
 <?php
 }
 ?>
+
+<button onclick="topFunction()" id="GoToTopBtn" class="fas fa-chevron-up"></button>
+<script src="..\public\js\script.js"></script>

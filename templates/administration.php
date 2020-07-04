@@ -13,7 +13,7 @@
 
     <h4>Billets</h4>
 
-    <table>
+    <table id="posts-table">
         <thead>
             <tr>
                 <th id="B1">Id</th>
@@ -43,7 +43,7 @@
         ?>
     </table>
 
-    <div class="filter">
+    <!-- <div class="filter">
         <form action="" method="post">
             <h5>Filtrer les commentaires affichés ci-dessous</h5>
             <label><input type="radio" name="status" value="0">Autorisé</label>
@@ -51,10 +51,10 @@
             <label><input type="radio" name="status" value="2">Refusé</label>
             <input type="submit" value="Filtrer" />
         </form>
-    </div>
+    </div> -->
 
     <h4>Commentaires signalés</h4>
-    <table>
+    <table id="comments-table">
         <thead>
             <tr>
                 <th id="C1">Id</th>

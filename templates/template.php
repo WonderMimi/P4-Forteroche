@@ -49,14 +49,7 @@
         <?= $content ?>
     </div>
 
-    <script>
-        tinymce.init({
-            selector: '.tiny_text',
-            plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-            toolbar_mode: 'floating',
-            language: 'fr_FR'
-        });
-    </script>
+<script src="..\public\js\script.js"></script>
 </body>
 
 </html>
