@@ -195,7 +195,9 @@ h1 {
 
 /*================================  COMMENT  ==================================*/
 
-#comments {
+#comments,
+#login,
+#register {
   background-color: var(--bmoyen);
   width: 70%;
   margin: 5% auto;
@@ -206,7 +208,9 @@ h1 {
     text-align: center;
 }
 
-#comment-form {
+#comment-form,
+#login-form,
+#register-form {
   max-width: 70%;
   margin: auto;
 }
@@ -222,6 +226,10 @@ label {
 textarea {
   width: 100%;
   height: 8rem;
+}
+
+#submit {
+    margin-top: 10px;
 }
 
 /*================================  ADMIN  ==================================*/

@@ -1,8 +1,8 @@
 <?php $this->title = "Inscription"; ?>
-<h2>INSCRIPTION</h2>
+<h2 class="page_title">INSCRIPTION</h2>
 
-<div>
-    <form method="post" action="../public/index.php?route=register">
+<div id="register">
+    <form id="register-form" method="post" action="../public/index.php?route=register">
         <label for="pseudo">Pseudo</label><br>
         <input type="text" id="pseudo" name="pseudo" value="<?= isset($form_post) ? htmlspecialchars($form_post->get('pseudo')) : ''; ?>"><br>
         <?= isset($errors['pseudo']) ? $errors['pseudo'] : ''; ?>
