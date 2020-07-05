@@ -1,7 +1,10 @@
 <?php $this->title = "Connexion"; ?>
 <h2 class="page_title">CONNEXION</h2>
 
-<?= $this->session->show('error_login'); ?>
+<p class="login-msg"><?= $this->session->show('error_login'); ?></p> <!-- Le pseudo ou le mot de passe sont incorrects -->
+<p class="login-msg"><?= $this->session->show('need_login'); ?></p> <!-- Vous devez vous connecter pour accéder à cette page -->
+<p class="login-msg"><?= $this->session->show('not_admin'); ?></p> <!-- Vous devez être administrateur pour accéder à cette page -->
+
 
 <div id="login">
     <form id="login-form" method="post" action="../public/index.php?route=login">

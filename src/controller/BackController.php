@@ -6,6 +6,17 @@ use P4\config\Parameter;
 
 class BackController extends Controller
 {
+    private function checkAdmin() //Checks if the logged in user has admin credentials
+    {
+        $this->checkLoggedIn();
+        if(!($this->session->get('groups') === 'admin')) {
+            $this->session->set('not_admin', 'Vous devez être administrateur pour accéder à cette page');
+            header('Location: ../public/index.php?route=login');
+        } else {
+            return true;
+        }
+    }
+
     public function administration()
     {
         if($this->checkAdmin()) {
@@ -27,7 +38,7 @@ class BackController extends Controller
                 $errors = $this->validation->validate($form_post, 'Post');
                 if (!$errors) {
                     $this->postManager->addPost($form_post);
-                    $this->session->set('add_post', 'Le nouveau billet a bien été ajouté');
+                    $this->session->set('add_post', 'Le nouveau chapitre a bien été ajouté');
                     header('Location: ../public/index.php?route=administration');
                 }
                 return $this->view->render('add_post', [
@@ -47,7 +58,7 @@ class BackController extends Controller
                 $errors = $this->validation->validate($form_post, 'Post');
                 if (!$errors) {
                     $this->postManager->editPost($form_post, $postId);
-                    $this->session->set('edit_post', 'Le billet a bien été modifié');
+                    $this->session->set('edit_post', 'Le chapitre a bien été modifié');
                     header('Location: ../public/index.php?route=administration');
                 }
                 return $this->view->render('edit_post', [
@@ -70,7 +81,7 @@ class BackController extends Controller
     {
         if($this->checkAdmin()) {
             $this->postManager->deletePost($postId);
-            $this->session->set('delete_post', 'Le billet a bien été supprimé');
+            $this->session->set('delete_post', 'Le chapitre a bien été supprimé');
             header('Location: ../public/index.php?route=administration');
         }
     }
@@ -79,7 +90,7 @@ class BackController extends Controller
     {
         if($this->checkAdmin()) {
             $this->commentManager->deleteComment($commentId);
-            $this->session->set('delete_comment', 'Le commentaire a bien été supprimé');
+            $this->session->set('delete_comment', 'Le commentaire a été supprimé');
             header('Location: ../public/index.php?route=administration');
         }
     }
@@ -88,7 +99,7 @@ class BackController extends Controller
     {
         if($this->checkAdmin()) {
             $this->commentManager->deleteFlag($commentId);
-            $this->session->set('deleteFlag', 'Le commentaire a bien été autorisé');
+            $this->session->set('deleteFlag', 'Le commentaire a été autorisé');
             header('Location: ../public/index.php?route=administration');
         }
     }
@@ -109,15 +120,4 @@ class BackController extends Controller
         }
     }
 
-    private function checkAdmin() //Checks if the logged in user has admin credentials
-    {
-        $this->checkLoggedIn();
-        if(!($this->session->get('role') === 'admin')) {
-            $this->session->set('not_admin', 'Vous n\'avez pas le droit d\'accéder à cette page');
-            header('Location: ../public/index.php?route=login');
-        } else {
-            header('Location: ../public/index.php?route=administration');
-            // return true;
-        }
-    }
 }

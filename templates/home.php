@@ -12,8 +12,8 @@
 <div class="separator" id="billets"></div>
 <section id="home-section">
 
-    <?= $this->session->show('register'); ?>
-    <?= $this->session->show('login'); ?>
+    <p class="login-msg"><?= $this->session->show('register'); ?></p> <!-- Vous êtes maintenant inscrit(e) -->
+    <p class="login-msg"><?= $this->session->show('login'); ?></p>  <!-- Content de vous revoir -->
 
 
     <h2 class="page_title">Mes 5 derniers chapitres</h2>

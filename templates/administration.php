@@ -2,14 +2,15 @@
 
 <h2 class="page_title">Espace d'administration</h2>
 
-<?= $this->session->show('add_post'); ?>
-<?= $this->session->show('edit_post'); ?>
-<?= $this->session->show('delete_post'); ?>
-<?= $this->session->show('deleteFlag'); ?>
-<?= $this->session->show('delete_comment'); ?>
+<p class="admin-msg"><?= $this->session->show('add_post'); ?></p> <!-- Le nouveau chapitre a bien été ajouté -->
+<pc class="admin-msg"><?= $this->session->show('edit_post'); ?></p>  <!-- Le chapitre a bien été modifié -->
+<p class="admin-msg"><?= $this->session->show('delete_post'); ?></p> <!-- Le chapitre a bien été supprimé -->
+<p class="admin-msg"><?= $this->session->show('deleteFlag'); ?></p>  <!-- Le commentaire a été autorisé -->
+<p class="admin-msg"><?= $this->session->show('delete_comment'); ?></p> <!-- Le commentaire a été supprimé -->
+
 <section id="admin_body">
 
-    <a href="../public/index.php?route=addPost">Ajouter un nouveau billet</a>
+    <a href="../public/index.php?route=addPost">Ajouter un nouveau chapitre</a>
 
     <h4>Billets</h4>
 

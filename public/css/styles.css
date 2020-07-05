@@ -155,8 +155,11 @@ h1 {
   border-top: 2em solid var(--bglacier);
 }
 
+.login-msg {
+    color: white;
+}
 
-/*================================  BILLET  ==================================*/
+/*================================  POSTS  ==================================*/
 .card-title {
   font-weight: bolder;
   color: var(--bmoyen);
@@ -236,6 +239,10 @@ textarea {
 #admin_body {
     margin-left: 2rem;
     margin-right: 2rem;
+}
+
+.admin-msg {
+    color: white;
 }
 
 table {
