@@ -155,8 +155,11 @@ h1 {
   border-top: 2em solid var(--bglacier);
 }
 
-.login-msg {
-    color: white;
+.login-msg,
+.admin-msg {
+    color: yellow;
+    font-weight: bolder;
+    text-align: center;
 }
 
 /*================================  POSTS  ==================================*/
@@ -242,7 +245,7 @@ textarea {
 }
 
 .admin-msg {
-    color: white;
+    color: lightgreen;
 }
 
 table {
