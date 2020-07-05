@@ -155,8 +155,8 @@ h1 {
   border-top: 2em solid var(--bglacier);
 }
 
-.login-msg,
-.admin-msg {
+.yellow-msg,
+.green-msg {
     color: yellow;
     font-weight: bolder;
     text-align: center;
@@ -201,28 +201,62 @@ h1 {
 
 /*================================  COMMENT  ==================================*/
 
+#add-comments,
 #comments,
 #login,
 #register {
   background-color: var(--bmoyen);
   width: 70%;
-  margin: 5% auto;
+  margin: 0 auto 2% auto;
 }
 
-#comments h3 {
+#add-comments h3 {
     color: white;
     text-align: center;
 }
 
 #comment-form,
+.comment,
 #login-form,
 #register-form {
   max-width: 70%;
   margin: auto;
 }
 
+#pseudo {
+    font-style: italic;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--bmoyen)
+}
+
+#comment-date {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+
+#single-comment {
+    padding: 2%;
+    -webkit-box-shadow: 4px 4px 5px 0px var(--bfonce);
+    box-shadow: 4px 4px 5px 0px var(--bfonce);
+    background-color: lightgrey;
+    border-radius: 10px;
+    border-bottom: dotted 2px grey;
+    margin: 0 auto 5px auto;
+    width: 70%;
+}
+
+.cmt-msg {
+    text-align: right;
+    font-size: 16px;
+}
+
 input {
   width: 100%;
+  border-radius: 10px;
 }
 
 label {
@@ -232,10 +266,13 @@ label {
 textarea {
   width: 100%;
   height: 8rem;
+  border-radius: 10px;
 }
 
 #submit {
     margin-top: 10px;
+    width: 200px;
+    margin-left: 40%;
 }
 
 /*================================  ADMIN  ==================================*/
@@ -244,7 +281,7 @@ textarea {
     margin-right: 2rem;
 }
 
-.admin-msg {
+.green-msg {
     color: lightgreen;
 }
 

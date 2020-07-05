@@ -12,32 +12,37 @@
         <p class="creation">Créé le : <?= ($post->getCreated_date()); ?></p>
     </div>
 
-    <?= $this->session->show('add_comment'); ?>
-    <?= $this->session->show('flag_comment'); ?>
+    <p class="green-msg"><?= $this->session->show('add_comment'); ?></p> <!-- Le nouveau commentaire a bien été ajouté -->
+    <p class="green-msg"><?= $this->session->show('flag_comment'); ?></p> <!-- Le commentaire a bien été signalé -->
     <br>
 
-    <div id="comments">
+    <div id="add-comments">
         <h3>Ajouter un commentaire</h3>
         <?php include('form_comment.php'); ?>
-
-        <h4>Commentaires</h4>
-        <?php
-        foreach ($comments as $comment) {
-        ?>
-            <h5><?= htmlspecialchars($comment->getAuthor()); ?></h5>
-            <p><?= htmlspecialchars($comment->getComment()); ?></p>
-            <p>Posté le <?= htmlspecialchars($comment->getCreated_date()); ?></p>
-            <?php
-            if ($comment->isFlagged()) {
-            ?>
-                <p>Ce commentaire a déjà été signalé</p>
-            <?php
-            } else {
-            ?>
-                <p><a href="../public/index.php?route=flagComment&commentId=<?= $comment->getId(); ?>">Signaler le commentaire</a></p>
-            <?php
-            }
-        }
-        ?>
     </div>
+    <div id=comments>
+        <h4>Commentaires</h4>
+
+            <?php
+            foreach ($comments as $comment) {
+            ?>
+                <div id="single-comment">
+                    <h5 id="pseudo"><?= htmlspecialchars($comment->getAuthor()); ?>
+                    <span id="comment-date"> le <?= htmlspecialchars($comment->getCreated_date()); ?></span></h5>
+                    <p><?= htmlspecialchars($comment->getComment()); ?></p>
+                    <?php
+                    if ($comment->isFlagged()) {
+                    ?>
+                        <p class="cmt-msg">Ce commentaire a déjà été signalé</p>
+                    <?php
+                    } else {
+                    ?>
+                        <p class="cmt-msg"><a href="../public/index.php?route=flagComment&commentId=<?= $comment->getId(); ?>">Signaler le commentaire</a></p>
+                </div>
+                <?php
+                }
+            }
+            ?>
+        </div>
+
 </div>
