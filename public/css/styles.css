@@ -65,7 +65,7 @@ a,
 a:link,
 li a:visited {
   text-decoration: none;
-  /* color: var(--bglacier); */
+  color: var(--bglacier);
 }
 
 ul {
@@ -86,6 +86,16 @@ nav a {
 
 li .nav-item .active {
   border-bottom: solid 2px var(--bglacier);
+}
+
+.fa-home,
+.fa-book,
+.fa-wrench,
+.fa-user,
+.fa-sign-out-alt,
+.fa-sign-in-alt {
+    margin-right: 5px;
+    margin-left: 10px;
 }
 
 .alaska {
@@ -199,7 +209,7 @@ h1 {
   padding-left: 1.25rem;
 }
 
-/*================================  COMMENT  ==================================*/
+/*================================  COMMENTS  ==================================*/
 
 #add-comments,
 #comments,
@@ -254,6 +264,10 @@ h1 {
     font-size: 16px;
 }
 
+#signal {
+    color: black;
+}
+
 input {
   width: 100%;
   border-radius: 10px;
@@ -279,6 +293,18 @@ textarea {
 #admin_body {
     margin-left: 2rem;
     margin-right: 2rem;
+}
+
+.fa-feather-alt {
+    color: white;
+    font-size: 1.5rem;
+}
+
+#add-new-post {
+    color: white;
+    font-family: arial, helvetica, sans-serif;
+    font-weight: normal;
+    margin-left: 5px;
 }
 
 .green-msg {

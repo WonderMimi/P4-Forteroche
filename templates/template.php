@@ -26,7 +26,7 @@
 
                 <?php if ($this->session->get('pseudo')) { ?>
 
-                    <li class="nav-item"><a href="../public/index.php?route=logout">Déconnexion</a></li>
+                    <li class="nav-item"><a href="../public/index.php?route=logout"><span class="fas fa-sign-out-alt"></span> Déconnexion</a></li>
 
                     <?php if ($this->session->get('groups') === 'admin') { ?>
 
@@ -36,8 +36,8 @@
                 } else {
                     ?>
 
-                    <li class="nav-item"><a href="../public/index.php?route=register">Inscription</a></li>
-                    <li class="nav-item"><a href="../public/index.php?route=login">Connexion</a></li>
+                    <li class="nav-item"><a href="../public/index.php?route=register"><span class="fas fa-user"></span> Inscription</a></li>
+                    <li class="nav-item"><a href="../public/index.php?route=login"><span class="fas fa-sign-in-alt"></span> Connexion</a></li>
 
                 <?php
                 }

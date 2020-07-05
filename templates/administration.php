@@ -10,7 +10,7 @@
 
 <section id="admin_body">
 
-    <a href="../public/index.php?route=addPost">Ajouter un nouveau chapitre</a>
+    <p class="fas fa-feather-alt"><a id="add-new-post" href="../public/index.php?route=addPost"> Ajouter un nouveau chapitre</a></p>
 
     <h4>Billets</h4>
 

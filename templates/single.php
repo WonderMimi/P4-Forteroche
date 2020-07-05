@@ -37,7 +37,7 @@
                     <?php
                     } else {
                     ?>
-                        <p class="cmt-msg"><a href="../public/index.php?route=flagComment&commentId=<?= $comment->getId(); ?>">Signaler le commentaire</a></p>
+                        <p class="cmt-msg"><a id="signal" href="../public/index.php?route=flagComment&commentId=<?= $comment->getId(); ?>">Signaler le commentaire</a></p>
                 </div>
                 <?php
                 }
