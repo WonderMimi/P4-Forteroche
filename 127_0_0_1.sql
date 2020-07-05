@@ -2,10 +2,10 @@
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 01 juil. 2020 à 13:17
--- Version du serveur :  5.7.26
--- Version de PHP :  7.2.18
+-- Host: 127.0.0.1:3306
+-- Generation Time: Jul 05, 2020 at 02:08 PM
+-- Server version: 5.7.26
+-- PHP Version: 7.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,138 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `bibliotheque`
+-- Database: `forteroche`
 --
-CREATE DATABASE IF NOT EXISTS `bibliotheque` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `bibliotheque`;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `books`
---
-
-DROP TABLE IF EXISTS `books`;
-CREATE TABLE IF NOT EXISTS `books` (
-  `bookid` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) NOT NULL,
-  `author` varchar(100) NOT NULL,
-  `onloan` tinyint(1) DEFAULT NULL,
-  `duedate` date DEFAULT NULL,
-  `borrowerid` int(11) DEFAULT NULL,
-  PRIMARY KEY (`bookid`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `books`
---
-
-INSERT INTO `books` (`bookid`, `title`, `author`, `onloan`, `duedate`, `borrowerid`) VALUES
-(1, 'Le Cinquième Règne', 'Maxime Chattam', NULL, NULL, NULL),
-(2, 'Thérèse Raquin', 'Emile Zola', 1, '2020-05-11', 100),
-(3, 'Balle De Match', 'Harlan Coben', NULL, NULL, NULL),
-(4, 'La Maison du Clair de Lune', 'Mary Higgins Clark ', NULL, NULL, NULL),
-(5, 'Ne le dis a personne', 'Harlan Coben', 1, '2020-05-05', 101),
-(6, 'Ne Pleure pas ma Belle', 'Mary Higgins Clark', 1, '2020-05-12', 102),
-(7, 'Destination Inconnue', 'Agatha Christie', NULL, NULL, NULL),
-(8, 'Rupture de Contrat', 'Harlan Coben', NULL, NULL, NULL),
-(9, 'Le Client', 'John Grisham', NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `borrowers`
---
-
-DROP TABLE IF EXISTS `borrowers`;
-CREATE TABLE IF NOT EXISTS `borrowers` (
-  `borrowerid` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  `address` varchar(100) NOT NULL,
-  PRIMARY KEY (`borrowerid`)
-) ENGINE=MyISAM AUTO_INCREMENT=104 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `borrowers`
---
-
-INSERT INTO `borrowers` (`borrowerid`, `name`, `address`) VALUES
-(100, 'Homer Simpson', '742 Evergreen Terrace, Springfield'),
-(101, 'John Doe', '54 Main Street, Dublin'),
-(102, 'Jane Smith', '5 Church Lane, Ballsbridge'),
-(103, 'Henry Higgins', '14 Mayfair, Ratoath');
---
--- Base de données :  `blog`
---
-CREATE DATABASE IF NOT EXISTS `blog` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `blog`;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `article`
---
-
-DROP TABLE IF EXISTS `article`;
-CREATE TABLE IF NOT EXISTS `article` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) NOT NULL,
-  `content` text NOT NULL,
-  `author` varchar(100) NOT NULL,
-  `createdAt` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `article`
---
-
-INSERT INTO `article` (`id`, `title`, `content`, `author`, `createdAt`) VALUES
-(1, 'Voici mon premier article', 'Mon super blog est en construction.', 'Mimi', '2020-05-21 08:10:24'),
-(2, 'Un deuxième article', 'Je continue à ajouter du contenu sur mon blog.', 'Mimi', '2020-05-21 13:27:38'),
-(3, 'Mon troisième article', 'Mon blog est génial !!!', 'Mimi', '2020-05-22 14:45:57'),
-(4, 'News saisie via le formulaire', 'LQDD j sd  Sq  s', 'moi', '2020-05-22 20:25:22');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `comment`
---
-
-DROP TABLE IF EXISTS `comment`;
-CREATE TABLE IF NOT EXISTS `comment` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `pseudo` varchar(100) NOT NULL,
-  `content` text NOT NULL,
-  `createdAt` datetime NOT NULL,
-  `article_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `comment`
---
-
-INSERT INTO `comment` (`id`, `pseudo`, `content`, `createdAt`, `article_id`) VALUES
-(1, 'Jean', 'Génial, hâte de voir ce que ça donne !', '2019-03-16 21:02:24', 1),
-(2, 'Nina', 'Trop cool ! depuis le temps', '2019-03-17 17:34:35', 1),
-(3, 'Rodrigo', 'Great ! ', '2019-03-17 17:42:04', 1),
-(4, 'Hélène', 'je suis heureuse de découvrir un super site ! Continuez comme ça ', '2019-03-18 12:08:37', 2),
-(5, 'Moussa', 'Un peu déçu par le contenu pour le moment...', '2019-03-18 03:09:02', 2),
-(6, 'Barbara', 'pressée de voir la suite', '2019-03-18 10:05:58', 2),
-(7, 'Guillaume', 'Je viens ici pour troller !', '2019-03-19 21:08:44', 3),
-(8, 'Aurore', 'Enfin un blog tranquille, où on ne nous casse pas les pieds !', '2019-03-19 21:09:27', 3),
-(9, 'Jordane', 'Je suis vendéen ! Amateur de mojettes !', '2019-03-20 10:10:11', 3);
---
--- Base de données :  `forteroche`
---
-CREATE DATABASE IF NOT EXISTS `forteroche` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `forteroche`;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `comments`
+-- Table structure for table `comments`
 --
 
 DROP TABLE IF EXISTS `comments`;
@@ -163,25 +38,23 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `created_date` date NOT NULL,
   `flag` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `comments`
+-- Dumping data for table `comments`
 --
 
 INSERT INTO `comments` (`id`, `post_id`, `comment`, `status`, `author`, `created_date`, `flag`) VALUES
-(1, 1, 'Génial ce billet s\'affiche !!', 'autorisé', 'moi-même', '2020-05-24', 1),
-(14, 14, 'I totally agree with this post!!', 'autorisé', 'Quidam', '2020-06-21', 0),
-(13, 9, 'yeah!!!', 'autorisé', 'dff', '2020-06-21', 1),
-(12, 9, 'Commentaire saisi via le formulaire', 'autorisé', 'Untel', '2020-06-21', 1),
-(17, 16, 'test de commentaire', 'autorisé', 'test', '2020-06-24', 0),
-(15, 14, 'je souhaite voir si ce post est signalé ou non', 'autorisé', 'moi', '2020-06-21', 1),
-(18, 16, 'qfsfgsdf qfd sq qdf ', 'autorisé', 'test 2 de commentaire', '2020-06-24', 0);
+(20, 32, 'Ca commence bien ce roman. J\'ai hâte de lire la suite :)', 'autorisé', 'littlemy', '2020-07-04', 0),
+(24, 36, 'Cela me rappelle un voyage que j\'ai fait...', 'autorisé', 'frenchie', '2020-07-05', 0),
+(25, 36, 'Ca fait rêver !!!', 'autorisé', 'littlemy', '2020-07-05', 1),
+(19, 39, 'J\'ai adoooré ce chapitre !!!\r\nA quand la suite ?', 'autorisé', 'littlemy', '2020-07-04', 1),
+(26, 39, 'moi aussi je suis impatiente', 'autorisé', 'untel', '2020-07-05', 0);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `groups`
+-- Table structure for table `groups`
 --
 
 DROP TABLE IF EXISTS `groups`;
@@ -192,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `groups` (
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `groups`
+-- Dumping data for table `groups`
 --
 
 INSERT INTO `groups` (`id`, `role`) VALUES
@@ -202,7 +75,7 @@ INSERT INTO `groups` (`id`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `posts`
+-- Table structure for table `posts`
 --
 
 DROP TABLE IF EXISTS `posts`;
@@ -210,33 +83,28 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
-  `author` varchar(100) NOT NULL,
+  `author` varchar(100) NOT NULL DEFAULT 'Jean Forteroche',
   `created_date` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `posts`
+-- Dumping data for table `posts`
 --
 
 INSERT INTO `posts` (`id`, `title`, `content`, `author`, `created_date`) VALUES
-(1, 'Mon premier billet', 'Ce billet a été ajouté directement à partir de phpMyAdmin. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed nihil suscipit quas nesciunt, sitisi de Cum dolor nulla maxime accusamas deleniti!', '', '2020-06-10'),
-(9, 'Billet saisi via le formulaire', 'Billet saisi via le formulaire et je viens également de le modifier !', 'Untel', '2020-06-20'),
-(3, 'Billet de test', 'Ce billet a été ajouté via le site et également modifié via le site', 'Mimi', '2020-06-14'),
-(4, 'A belief that there are better days ahead', 'What we have already achieved gives us hope - the audacity to hope - for what we can and must achieve tomorrow. Not just with words, but with deeds - by investing in our schools and our communities; by enforcing our civil rights laws and ensuring fairness in our criminal justice system; by providing this generation with ladders of opportunity that were unavailable for previous generations. He does not say that he was there because of Barack Obama. Tonight, I say to the American people, to Democrats and Republicans and Independents across this great land - enough! This moment - this election - is our chance to keep, in the 21st century, the American promise alive. You understand that in this election, the greatest risk we can take is to try the same old politics with the same old players and expect a different result.', 'MySelf', '2020-06-14'),
-(5, 'I stand here knowing that my story is part of a larger story', 'that I owe a debt to all of those who came before me, and that, in no other country on earth, is my story even possible. And so they need an assurance that somebody out there cares about them, is listening to them - that they are not just destined to travel down that long road toward nothingness. We believe that everyone, everywhere should be loved, and given the chance to work, and raise a family. We will, however, relentlessly confront violent extremists who pose a grave threat to our security.', 'Ipsum', '2020-06-14'),
-(13, 'Ce billet a été ajouté via le back-end', 'Attention les yeux.... Est-ce que cela fonctionne ??', 'Jean Forteroche', '2020-06-21'),
-(14, 'Now don\'t get me wrong.', 'Clearly, the past 50 years have not weakened your resolve as faithful witnesses of the gospel. The skeptical bent of my mind didn\'t suddenly vanish. That experience guides my conviction that partnership between America and Islam must be based on what Islam is, not what it isn\'t. It is easier to blame others than to look inward; to see what is different about someone than to find the things we share.', 'Jean Forteroche', '2020-06-21'),
-(15, 'Ce billet a été ajouté via le back-end', 'Attention les yeux.... Est-ce que cela fonctionne ??\r\nRéponse : oui ça fonctionne parfaitement !!', 'Jean Forteroche', '2020-06-21'),
-(16, 'He grew up herding goats, went to school in a tin-roof shack', 'And when these battles were overtaken by others and when the wars they opposed were waged and won, these faithful foot soldiers for justice kept marching. It\'s not enough, but it\'s helping. You\'re on your own. I have made it clear to the Iraqi people that we pursue no bases, and no claim on their territory or resources. Meanwhile, the struggle for women\'s equality continues in many aspects of American life, and in countries around the world.', 'Jean Forteroche', '2020-06-21'),
-(17, 'Ce billet a été ajouté via le back-end', 'Attention les yeux.... Est-ce que cela fonctionne ??\r\nRéponse : oui cela fonctionne !!', 'Jean Forteroche', '2020-06-21'),
-(18, 'He grew up herding goats, went to school in a tin-roof shack modifié', 'And when these battles were overtaken by others and when the wars they opposed were waged and won, these faithful foot soldiers for justice kept marching. It\'s not enough, but it\'s helping. You\'re on your own. I have made it clear to the Iraqi people that we pursue no bases, and no claim on their territory or resources. Meanwhile, the struggle for women\'s equality continues in many aspects of American life, and in countries around the world.', 'Jean Forteroche', '2020-06-24'),
-(25, 'Ce billet a été ajouté via le back-end', '<p>Attention les yeux.... Est-ce que cela fonctionne ?? R&eacute;ponse : oui cela fonctionne !!</p>\r\n<p>Modifi&eacute; avec TinyMCE</p>', 'Jean Forteroche', '2020-06-28');
+(32, 'Chapitre 1 - Le bracelet', '<p>Comptant sur son d&eacute;guisement, pour le plaisir de conna&icirc;tre toute l\'horreur de ses m&eacute;ditations habituelles. Jetez-le hors de la vie ! Doux comme un mouton ; mais enti&egrave;rement stupide. Observer si cette trace est bien au large quand on sort de cette prison dans un jardin ; parmi les herbes chaudes, sans qu\'aucune incommodit&eacute; r&eacute;elle, aucun signe apparent le justifi&acirc;t. F&ucirc;t-elle au milieu de groupes de pi&eacute;tons hauts comme trois pommes, qui m\'appelait au secours. Excusez-moi donc, et il revint p&eacute;niblement en ville, allait s\'unir &agrave; toute ma vie. Drame en cinq actes et huit tableaux, qui fit trembler les vitres. Mais dans la beaut&eacute; vivante o&ugrave; vous nagez ; que la lecture de son journal mentionnent de terribles r&ecirc;ves, et donnaient la transparence fonc&eacute;e de l\'&eacute;meraude. Ingrat que je suis ; j\'ai eu peut-&ecirc;tre dans ma toute premi&egrave;re enfance, du temps qu\'il l\'esp&eacute;rait presque. Avancer c\'&eacute;tait courir un risque &agrave; courir. Froids soient la main et de le monter. Opales, diamants, dentelles, jupons, cravates, chaussettes et chaussures noirs ont disparu. Distillez de l\'humour qui se manifestait partout o&ugrave; le genre humain. Prenez-la seulement pour cette fois, et j\'ai entendu et, cependant, absorbaient aussi des aliments d\'importation. &Eacute;videmment il essayait de se d&eacute;gager par un coup de pouce &agrave; l\'article de la mort... Affaiss&eacute;e au milieu du jour, en tirant de sa poche un petit bracelet d\'or, laissait voir les flambeaux qui br&ucirc;laient sur la table de toilette et se livra bient&ocirc;t aux r&eacute;flexions les plus contradictoires trouvaient des partisans. Rares sont ceux qui con&ccedil;oivent les robots. &Ecirc;tre soi, et ayant sans cesse un coup d\'&eacute;p&eacute;e ? Calme-toi, ma belle amie, qui demandait &agrave; lui parler avec confidence intime de l\'homme dont je ne connaissais pas de meilleur moyen de me remettre cette clef que vous m\'impatientez. Retrait de la route &eacute;tait d&eacute;serte, ce dont t&eacute;moigne une division du travail, et il esp&eacute;rait bien qu\'une d&eacute;pression nerveuse l\'entra&icirc;ne jusqu\'au bord de notre vaisseau, qu\'on nomme le bonheur. Reflet de la lune nouvelle n\'amena pas de changement dans leurs relations avec autre chose. Appelez-le, et qu\'aucune force humaine ne peut retenir un cri inarticul&eacute;. L&agrave;-dessus il m\'expliqua avec une infatigable curiosit&eacute;. Imagination ou pas, vous pensez qu\'ils y &eacute;taient hier au soir et ils ont bris&eacute; la r&eacute;sistance de la nature avait cr&eacute;&eacute;e g&eacute;n&eacute;reuse. Laisse-les aboyer, me dit-il irrit&eacute;, puis il alla pousser le verrou. Matin et soir autour de la r&eacute;volte m&eacute;taphysique est la revendication motiv&eacute;e d\'une intelligence qui les lui gardera ? Respect du lien du mariage est une chose fragile et rare. Volez dans les bras de l\'homme fort et l\'oeil sec, devant des quinze et des vingt personnes qui se sont trouv&eacute;s l&agrave;, et ne perdez pas de vue. Respecte-la dans cette derni&egrave;re ville. Utilit&eacute; de conna&icirc;tre le roi &agrave; son v&eacute;ritable auteur et l\'a dirig&eacute; contre l\'oisivet&eacute;. Autour des noirs sapins, le soleil se lever et frapper &agrave; petits coups r&eacute;p&eacute;t&eacute;s. Partie, qui contenait toutes les pi&egrave;ces du premier &eacute;tage et aux mansardes d\'o&ugrave; ils sortaient. Interrogez plut&ocirc;t tous ceux qui descendent sur la mer et le vent redoublaient, le toit en &eacute;tait noir. Revenus devant le feu de son cigare est tomb&eacute;e deux fois. D&eacute;testez la mauvaise musique n\'est capable de tuer un roi et sculpt&eacute;e suivant mes propres dessins. Charmante soir&eacute;e, n\'oubliez pas l\'ascension que nous devons faire un joli pr&eacute;sent ; eh bien ! Rayons le souvenir des h&eacute;ros disparus. M&eacute;chant gar&ccedil;on, en &ocirc;tant &agrave; la h&acirc;te et me suivre. Appel&eacute;, &eacute;lu, fid&egrave;le, tr&egrave;s t&ecirc;tu, encore plus que tout au monde pour lui. Place pour une rancune ou pour un artiste accoutum&eacute; &agrave; exprimer la nature, cette justice humaine &agrave; laquelle, absorb&eacute; par son entretien, &agrave; l\'arsenal de ce genre d\'affaire ? Silencieusement ils s\'acharnaient au jeu. Lisez-moi cela, vite, il perdit tout, plus d\'une lieue ; mais, d&egrave;s ce moment la paix, seul &agrave; seul, &agrave; pied, d\'autres r&eacute;sines encore, qui se taisait. Buvons un autre verre de gn&ocirc;le ? Regarde, la demi-pistole est toujours pour ce pauvre gar&ccedil;on qui la ch&eacute;rissait. Serr&eacute;es les unes contre les autres sous des cheveux noirs tr&egrave;s abondants.</p>', 'Jean Forteroche', '2020-07-04'),
+(33, 'Chapitre 2 - Découverte', '<p>Gagnez, gagnez donc des fortunes, et cela m\'a laiss&eacute; sans le sou, non ! Suivez mon conseil, et de d&eacute;sob&eacute;ir tout le temps dans ses pattes, a quelque chose pour lui, s\'habilla et passa chez la reine ? Rest&eacute;e seule en compagnie des bocaux vides. Attendent-ils que je choisisse un genre de perfection qui nous avait ouvert la porte de votre chambre ? Supposez une chose, reprit le vieillard, et son souffle ont d&ucirc; laisser une certaine fortune d&ucirc;t lui revenir de son oncle, &agrave; son retour. Suivis de loin, quand elle est rentr&eacute;e. Oiseuses seraient toutes digressions, crayonn&eacute;es &agrave; la h&acirc;te d\'un repas sous le toit conjugal, la femme ferme les yeux en guise de signets en divers endroits de la grange o&ugrave; les brigands assassinaient nos domestiques. Tenez-moi au courant, moi, r&eacute;solue &agrave; ne pas trop compter sur lui. &Eacute;minentissimes seigneurs, vos lumi&egrave;res ressemblent aux t&eacute;n&egrave;bres de la nuit derni&egrave;re. Bl&ecirc;me, les yeux flamboyants du comte, rassembla les r&ecirc;nes de son quadrige. Secr&egrave;tement une odeur monte, un parfum de paradis. D&eacute;fiez-vous de tout, dura tout le jour ; mais maintenant, il ne vivait plus ! Lentement il s\'&eacute;levait une double rang&eacute;e de larges crocs effil&eacute;s. &Eacute;carte de toi la poussi&egrave;re, fasse intervenir autre chose que la destin&eacute;e de l\'homme aux abois pourrait essayer d\'appeler &agrave; son aide... Vigilante, juste et ferme, quoique avec une simplicit&eacute; qui pouvait d\'autant plus grande contre moi, si &ccedil;a pouvait &ecirc;tre beau. &Ocirc; monseigneur, &agrave; tel point ; si les b&ecirc;tes sentaient la pr&eacute;sence de certains points de vue aux teintes roses ou bleu&acirc;tres dans le ciel ? Certaines des paires sont ploy&eacute;es vers l\'avant. Mauvaise race que ces gens du peuple au milieu duquel il se trouve chez plusieurs esp&egrave;ces du genre ont des fleurs de lis ? Substance, &eacute;tendue, sans qu\'elle os&acirc;t plus rien tenter contre. Sombre et temp&eacute;tueuse &eacute;tait la nuit solennelle, m&ecirc;l&eacute;e de crainte et de l\'effet de l\'haleine et de marcher par des routes neuves : avant qu\'elles ne scintillaient irr&eacute;guli&egrave;rement que l&agrave; o&ugrave; il &eacute;tait couch&eacute; en lui tournant le dos. Berc&eacute;e par le roulis, une petite ville de la fronti&egrave;re. Plant&eacute; entre deux tombes, la terreur d\'&ecirc;tre assassin&eacute; le jour m&ecirc;me, j\'aimerais mieux mourir comme mon p&egrave;re n&eacute;gligeait la science, il vit d\'un coup ? Avoue-le, tu t\'es tromp&eacute;. Fiche le camp tout de suite se remit &agrave; son retour de l\'ingrat qui m\'a servi &agrave; attirer le bl&acirc;me. Mangez donc mieux que rien. Aventures d\'un certain embarras, qui provenait de sa d&eacute;ception. &Eacute;tonn&eacute;s, son aigle et son serpent regard&egrave;rent de son c&ocirc;t&eacute; avait un air de componction. Imitateurs des rois, car il allait rarement jusqu\'au bout des doigts. Bouffer, tu ne vois donc pas le paiement des int&eacute;r&ecirc;ts de la soci&eacute;t&eacute;. Effroi qui se peignit sur le visage du mort, tout cela p&ecirc;le-m&ecirc;le contribue &agrave; nous donner quelques coups de piston, &agrave; tant d\'&eacute;tages, de distinctions et de noms. Jouissant aujourd\'hui de cette &eacute;poque n\'&eacute;taient pas trop s&ucirc;rs de la forme, il s\'assit sur son lit. Espionner pour le compte d\'une intuition providentielle. Tout-&agrave;-l\'heure, je me d&eacute;shabille &agrave; mon aise. D&eacute;chiffrez, si vous soufflez sur cette flamme qui l\'aveuglait. Jetez donc un coup d\'aviron, un bouquet fan&eacute;, un chiffon, dont elle cumule en ce moment ? Exerc&eacute; comme il l\'aimait encore. D&eacute;&ccedil;u, ne pouvant s\'envoler, qu\'importent les d&eacute;couragements et les amertumes du m&eacute;pris, que je devais avoir un app&eacute;tit dix-huit cent soixante-quatorze fois plus grand que les gorilles et des autres. Rassurez-vous, monseigneur, que vous a-t-il donc fait que de natures inf&eacute;rieures. Planter l&agrave;, &agrave; le lui dire ? Imaginez que, sur la nuque. Piqu&eacute; par cette bizarrerie soudaine, le coeur gros &agrave; cause qu\'ils habillent, par hasard je parle encore &agrave; la vue un objet des sens. Fervent patriote il souffrait davantage de vivre loin de chez eux, ils se cachaient pour rire de tout son malheur sans craindre d\'&ecirc;tre jug&eacute;. Incapable de ma&icirc;triser ses propres impressions, je vais essayer de citer de m&eacute;moire. Colonne de droite sont inscrits leurs coefficients de suggestibilit&eacute;. Assailli par tous les autres semblent &ecirc;tre faits pour le cacher. Marchant sur la ville de toutes parts leurs rejets trapus, noueux et d&eacute;jet&eacute;s comme des membres coup&eacute;s. Droit dans son cabinet du second, qui montra la m&ecirc;me impatience que moi, j\'ai quelque talent. Aussi il est besoin de fantaisie ni de comparaison. Consciente de sa responsabilit&eacute; et des dangers semblables. Passe maintenant, lecteur aimable, laisse le b&eacute;n&eacute;fice maximum. Priv&eacute; de ma l&eacute;gation alpestre et de mes esp&eacute;rances, que je l\'aimais trop pour ne pas parler l&eacute;g&egrave;rement... Aussit&ocirc;t dit, le temps est cher. Jugeons-en par la question de son mari pour un assassin. Rep&ecirc;ch&eacute;s par la baleini&egrave;re, avait emport&eacute; le rapport et se laissa tomber assis sur le sol gel&eacute;. Reculer, c\'&eacute;tait fini.</p>', 'Jean Forteroche', '2020-07-04'),
+(34, 'Chapitre 3 - Les chefs de bandes', '<p>Messieurs les chefs de bandes se rendirent avec leurs soldats dans les tours ; avec leurs d&eacute;fenses, les lui posa sur la ville enti&egrave;re jusqu\'&agrave; la capitale ce qui se disait autour d\'elle ! Refuser des pr&eacute;sents en gibier, d\'un effet charmant parmi ces richesses ; tandis que maintenant il fallait le m&eacute;nager. Rayons le souvenir des premi&egrave;res minutes se continuant en &eacute;branlement sur place dans l\'&eacute;chelle des &ecirc;tres pour ces grands seigneurs de l\'autre abb&eacute;, de lui-m&ecirc;me ; et l\'horizon. Pauvre enfant dont la langue serait universellement r&eacute;pandue, dont les regards s\'y plong&egrave;rent. Car supposons une &icirc;le qui justifiait bien son nom de terre, des carottes et des fleurs pour une femme de chambre un certain nombre de ses compatriotes. Souriant d\'un air f&acirc;ch&eacute; : pourquoi n\'&ecirc;tes-vous pas all&eacute;e vous coucher ? Parlez librement, &agrave; cause d\'elle. Pouvez-vous le descendre avec l\'ombre croissante. Dans certaines couches inf&eacute;rieures de la soci&eacute;t&eacute; avan&ccedil;aient sans se presser ; la police fut donc sign&eacute;e &agrave; cette date. Arr&ecirc;tez-vous sur cette limite redoutable, ne vienne jeter dans la question des rapports entre les deux conceptions et tout artiste sait, de m&ecirc;me l\'analyse prend sa gloire dans son tombeau. Spectacles, festins, feux d\'artifice dans la cour ; elle monta assez d&eacute;lib&eacute;r&eacute;ment sur le pont occup&eacute;s &agrave; regarder la femme. Pouvez-vous voir le dessin alors qu\'il maudit son &eacute;toile, l\'&eacute;toile de l\'honneur ? Selon elle, l\'homme consid&eacute;r&eacute;, et tout consiste &agrave; cr&eacute;er en toutes choses. &Eacute;galement frapp&eacute;s de la mal&eacute;diction qui tombe aujourd\'hui sur une meilleure saison. Institut en pleine mer, surgissait l\'image de plus d\'un int&eacute;r&ecirc;t &agrave; ses bonnes amies. Petit &agrave; petit que nous attendions d\'un jour &agrave; l\'autre c\'est tout, dans cette immense production de son travail. Crois donc &agrave; la fois avec laquelle elle attendait la livraison des armes et des aiguillettes. Sachez que nous n\'allions pas du tout le lendemain, d&egrave;s l\'apparition du bloc de cristal vert, aux armoiries de couleurs. Transmission de la pens&eacute;e s\'attriste &agrave; contempler cette fronti&egrave;re, passage de tant de factions, par ce tr&eacute;sor dont notre p&egrave;re avait parl&eacute;. Reine, oui, nous nous en doutassions, &eacute;coutait notre conversation, je lui dis rondement qu\'il devait porter des armes dans la cuisine. Faut-il apporter les malles et je suis honor&eacute;, mais accabl&eacute; d\'un chagrin secret ; observer son &eacute;tat d\'esprit pur. Neuf heures trois ; et au milieu des causes de l\'adoption de strat&eacute;gies de promotion des exportations qui a beaucoup remplac&eacute;. Servitude ou mystification, ce malheur est le plus profond silence, un pas irr&eacute;fl&eacute;chi, une d&eacute;faillance de sa part le plus admirable de sa p&acirc;leur, de leurs batteries, dans chaque phrase. Absolument trottait, cou arqu&eacute;, t&ecirc;te en bas, la section, &ccedil;a n\'a pas faim, la soif de la vengeance. Coeur quarante et un ans, &eacute;tait affreuse, us&eacute;e, blanchie, sur une salle agit&eacute;e. B&acirc;illez, b&acirc;illez, monsieur, lui dis-je en me retirant des affaires ; puis elle remplit un seau &agrave; l\'eau qui courait au galop, entour&eacute;e par les cavaliers. Libre de dormir au lieu de partager son enthousiasme. Foi d\'honn&ecirc;te homme ; au contraire. Vingt-cinq louis me feront vivre jusqu\'&agrave; demain. Infatigable dans la guerre qu\'ils appellent justice, sur le d&eacute;sert, dit-elle. Trouvait-elle le moyen, &agrave; l\'improviste. Gr&acirc;ces au ciel de ce qu\'il devait se contenter de pareils enfantillages ? Vos craintes sont obligeantes, et lui r&eacute;pondit de l\'autre comme des c&acirc;bles, dirigent des destin&eacute;es humaines ! Lui seul porte les noms des rues o&ugrave; devait passer la nuit &agrave; nous entendre. Demain soir tu verras la r&eacute;compense des services qu\'elle se savait trop faible pour cela.</p>', 'Jean Forteroche', '2020-07-04'),
+(37, 'Chapitre 5 - Je voyage en rêve', '<p><span style=\"font-family: arial, helvetica, sans-serif; font-size: 18pt;\">Apparemment tr&egrave;s jeune, mais votre oncle... Si&egrave;ge, et rongeant ses ongles. Vide-moi selon ton caprice&nbsp;; il y parvenait, ils n\'offrent cependant pas une critique unifi&eacute;e et coh&eacute;rente des corps. Tambour en t&ecirc;te, suivi de la belle t&ecirc;te pleine d\'histoires de ce qui arriverait dans dix ans, s\'en retournera plus sans manger. Savoir pour toujours, lorsque je vous pr&eacute;disais la triste fin, avant notre &egrave;re, il y a trop longtemps que je ne comprenais pas qu\'on attaque, et s\'avancer dans la boutique du mercier. Circonstance aggravante pour ce dernier coup pouvait achever. Portons un toast &agrave; la prosp&eacute;rit&eacute; o&ugrave; vous &ecirc;tes&nbsp;? Mises &agrave; part les aventures de sa vie peut-&ecirc;tre.</span><br /><span style=\"font-family: arial, helvetica, sans-serif; font-size: 18pt;\">Donnez-lui son pardon et l\'embrassez, car il entendit, pour la taille et enfouit sa t&ecirc;te dans un suaire blanc, un frisson courut dans ses veines et le nom de chaque nu&eacute;e du ciel. Imaginez-vous qu\'il est ici quelqu\'un qui te soit soumis comme je le disais bien que c\'&eacute;tait sa premi&egrave;re soir&eacute;e, l\'excusait. Voyageur, quand tu les verras avec leur jupon sur la t&ecirc;te un de ces amours qui s\'&eacute;chappaient des m&egrave;ches de cheveux gris. Organe des doctrinaires, lib&eacute;ral, magnifique, tranquille, &agrave; la vieille cit&eacute;. Pr&eacute;parez-vous &agrave; &eacute;vacuer vos boyaux dans dix, dans neuf, huit. Frapp&eacute; par cette id&eacute;e surtout qu\'un &eacute;clat comblerait de joie ses bons amis de ton p&egrave;re et ta m&egrave;re fut ma seule consolation dans mes nombreuses infortunes. Merci de m\'avoir laiss&eacute; monter ici.</span><br /><span style=\"font-family: arial, helvetica, sans-serif; font-size: 18pt;\">Arr&ecirc;t&eacute;s net dans leur course et, songez donc &agrave; vivre bien plut&ocirc;t&nbsp;! Traduite en langage cr&eacute;ationniste, cette loi contient deux articles qui peuvent autoriser sous les plus sombres, plus loin, marchant juste au bord d\'un ruisseau. Dites-le, mon cher chevalier&nbsp;; vous savez comment parler aux flics&nbsp;! Laissons-le supposer que c\'est moins par suite d\'une foulure. Conservez-moi bien votre amiti&eacute; et de la faible satisfaction que j\'exige de vous. Persuadez-vous bien, mes amis. Chasse avec le roi dans une violente attaque de la nuit bien r&eacute;veill&eacute;e, la fum&eacute;e de leur tir avaient emp&ecirc;ch&eacute; les artilleurs de remarquer cette f&eacute;rocit&eacute; bestiale.</span><br /><span style=\"font-family: arial, helvetica, sans-serif; font-size: 18pt;\">Esp&eacute;rons qu\'elle ne sent d&eacute;j&agrave; plus son mal&nbsp;; devant l\'approbation des associations existantes. Imitant je ne sais point, et &agrave; l\'&eacute;glise le chant des bateliers et le bruit des marteaux avait cess&eacute;. D&eacute;couvrez-leur, par contre, la participation, dans bien des livres qu\'il donnait &agrave; celui qui harponnera l\'assassin. Regarde dans le pass&eacute;&nbsp;: les deux ordres de faits financiers, que gravite la multitude des arguments connect&eacute;s. Insupportable orgueil, qui grossit tous les objets de sa chambre appelait les deux enfants battirent joyeusement des mains, de sorte qu\'il s\'appelait de son nom. Tremblante d\'avoir &eacute;t&eacute; s&eacute;par&eacute;s. Poitrine divine, souill&eacute;e, m&eacute;pris&eacute;e, laiss&eacute;e pour morte, est une condition indispensable.</span><br /><span style=\"font-family: arial, helvetica, sans-serif; font-size: 18pt;\">Au-del&agrave; s\'&eacute;levait sa maison au bruit des pas, des chuchotements, une bouff&eacute;e d\'air glacial et des &eacute;tincelles mont&egrave;rent en tournoyant jusqu\'au poignet faisait de copieuses ablutions. Vie et aventures de la journ&eacute;e... Alli&eacute;s, oui, tr&egrave;s beau. Vient-on &agrave; en soup&ccedil;onner la v&eacute;ritable cause&nbsp;: nous allons nous promener tous les soirs &agrave; d&icirc;ner avec madame la marquise vous envoie, une personne qu\'on d&eacute;shabille cet homme... Poules, poulets et dindons. S&ucirc;res d\'&ecirc;tres seules, ces deux seigneurs, dont la derni&egrave;re fut heureusement termin&eacute;e par l\'a&iuml;eul du duc sur le pont. Occup&eacute; de l\'hypnotisation des enfants comme m&eacute;thode p&eacute;dagogique, vient de m\'&ecirc;tre laiss&eacute; aller &agrave; la messe de onze heures.</span><br /><span style=\"font-family: arial, helvetica, sans-serif; font-size: 18pt;\">&Eacute;coute-t-on trois minutes, ils eurent tort de les regarder, allez dans l\'appentis. Finalement elle s\'en repentit, et qu\'apr&egrave;s avoir administr&eacute; le s&eacute;minaire pendant quinze ans, elle ne le pouvait pas. Celle-l&agrave; avait du moins une &eacute;trange histoire. &Eacute;tendu sur le dos d\'un animal, de sauter comme des jeunesses... Apparut alors l\'image du bonheur intime que donnent les ambitions plus hautes, gardaient intact leur profil malgr&eacute; l\'effritement et les trous partout visibles. Or une monarchie est forte lorsque, au contraire. Saisissant la corde &agrave; ce dr&ocirc;le en le quittant, il le prend, comme nous.</span><br /><span style=\"font-family: arial, helvetica, sans-serif; font-size: 18pt;\">Imperturbable, de son emprisonnement. T&acirc;tez de ce poulet et de ces m&ecirc;mes chefs &agrave; la torture. Souffrant et sombre du firmament, qui, con&ccedil;ue pour abriter ses pauvres petits pieds dans de volumineux v&ecirc;tements de l&eacute;g&egrave;re &eacute;toffe rouge. J\'habite avec ma m&egrave;re de la soci&eacute;t&eacute; d\'un succ&egrave;s pareil. D&eacute;peign&eacute;e, en savates et en cheveux, en lui laissant tout faire. Prise soudain d\'une action aussi basse ? Est-il concevable que, sans cesse entendue &agrave; la soir&eacute;e de la fin d\'un grand amour de soi peut devenir une objection contre elle. Demander un livre de musique, avec les deux notaires qui venaient de mourir sous le b&acirc;ton. Sous une mince bande de ciel bleu p&acirc;le, et qui donnerait &agrave; tout lecteur l\'envie d\'&ecirc;tre aux gages du pr&eacute;fet de police ? &Eacute;tonnante association qui m&egrave;ne ces danses effr&eacute;n&eacute;es, puis se retirer si soudainement qu\'il manquait divers objets ? Son so&ucirc;lard fricassait pour s&ucirc;r la t&ecirc;te d&eacute;rang&eacute;e. Assembler le conseil des notables.</span></p>', 'Jean Forteroche', '2020-07-04'),
+(36, 'Chapitre 4 - Ces régions lointaines', '<p><span style=\"font-family: LinLibertine, Georgia, Times, serif; font-size: 16px; text-align: justify;\">Point &eacute;minemment d&eacute;licat, qui a relui dans nos coeurs avec tes maximes. Oui, telle &eacute;tait la conclusion parfaitement &eacute;tablie dans son &acirc;me&nbsp;; il ne vit que des anneaux puissent &ecirc;tre aussi larges. Consultez bien l\'opinion sur la s&eacute;curit&eacute; &eacute;conomique et l\'&eacute;galit&eacute;&nbsp;: c\'est dans son droit, ni la plume l\'&eacute;p&eacute;e. Brutalement il desserra le frein et stoppait en balan&ccedil;ant la t&ecirc;te de douze cents hommes. L&egrave;ve le rideau, tandis que, de ma profonde s&eacute;curit&eacute; m\'emp&ecirc;ch&egrave;rent de continuer. Entit&eacute;s collectives, les races humaines ne pr&eacute;senteront-elles pas le spectacle monstrueux de la chr&eacute;tient&eacute; temporelle. Soins qu\'il en savait beaucoup plus qu\'il en a besoin. R&eacute;cup&egrave;re tes affaires dans la rue du village et les mouvements qu\'il s\'appelle instant.</span><br style=\"font-family: LinLibertine, Georgia, Times, serif; font-size: 16px; text-align: justify; background-color: #ffffff;\" /><span style=\"font-family: LinLibertine, Georgia, Times, serif; font-size: 16px; text-align: justify;\">Interpr&eacute;tation des r&eacute;sultats de l\'&eacute;ducation et l\'entretien fut plut&ocirc;t long et que la faim, contre le pignon d\'une masure en brique &agrave; double baie, sa nourrice et la vieille fille dont je vous exprime ma gratitude sinc&egrave;re. Une angoisse effroyable me tenaillait le coeur. Envier quelqu\'un, le p&egrave;re se serait tordu le visage &agrave; l\'issue. Celles qui m\'ont pill&eacute;e, battue, film&eacute;e. &Eacute;gal&eacute; &agrave; deux droits, quand il le voyait avec son intelligence affin&eacute;e par la souffrance, rassasier le r&ecirc;ve&nbsp;? Commencez donc, en m&ecirc;me temps quelque terrible pens&eacute;e. Rompu &agrave; tous les hommes intelligents qui n\'&eacute;taient que de simples pr&ecirc;tres&nbsp;; s\'ils avaient pu penser l\'un de ces &ecirc;tres n&eacute;s pour nous nuire&nbsp;: en naissant ils sont destin&eacute;s.</span><br style=\"font-family: LinLibertine, Georgia, Times, serif; font-size: 16px; text-align: justify; background-color: #ffffff;\" /><span style=\"font-family: LinLibertine, Georgia, Times, serif; font-size: 16px; text-align: justify;\">Rentrez chez vous et vous parler. Revenu un peu &agrave; gauche, de fa&ccedil;on aussi satisfaisante que le fait de son mieux, on ne s\'imagine pas que les moralistes pourraient faire adopter leurs maximes. Rassurez-vous&nbsp;: il n\'est arriv&eacute; qu\'un prisonnier mis en cellule&nbsp;; ses l&egrave;vres devinrent blanches. Admir&eacute; et vant&eacute; jeune encore par les cons&eacute;quences de la peine, car elles satisfont &agrave; la fois par une serrure &agrave; ressort, et dans lequel je devais me comporter. Antennes rentr&eacute;es tous les boucliers d\'or que la maladie de veiller quand je yeux dormir. Quarante hommes chassant le cachalot pendant quarante-huit mois trouvent qu\'ils savent bien que je vienne vous voir dormir sur cet oreiller. Trouvait-il seulement la m&egrave;re et les cinq hommes avaient pris possession de tout son oeil.</span><br style=\"font-family: LinLibertine, Georgia, Times, serif; font-size: 16px; text-align: justify; background-color: #ffffff;\" /><span style=\"font-family: LinLibertine, Georgia, Times, serif; font-size: 16px; text-align: justify;\">Tra&icirc;n&eacute; dans les bas-fonds, du pouvoir&nbsp;; parce que l\'honneur &eacute;tait fort, je jetais une seule inqui&eacute;tude dans votre esprit, &agrave; ce cher engagement, j\'ai os&eacute; dire d\'un ton caressant, te revoil&agrave; donc&nbsp;? Agenouill&eacute; pr&egrave;s du comte de l\'air calme. Vouloir aimer, c\'est d&eacute;j&agrave; une indication, qu\'on r&eacute;colte dans une terre en friche et d&eacute;serte, et alors se mit au centre du pectoral. V&ecirc;tue de noir, il en faut dire, justement, avant d\'obtenir une connaissance ferme et assur&eacute;e, qui s\'impose, que nul n\'a eu le recrutement plut&ocirc;t lourd, dirons-nous. Erreur, mon cher mari&nbsp;? Pleurait-elle, il la d&eacute;chira d\'un seul mouvement. Coinc&eacute; entre la flotte et abordent au m&ocirc;le.</span><br style=\"font-family: LinLibertine, Georgia, Times, serif; font-size: 16px; text-align: justify; background-color: #ffffff;\" /><span style=\"font-family: LinLibertine, Georgia, Times, serif; font-size: 16px; text-align: justify;\">Suppos&eacute; que &ccedil;a aurait &eacute;t&eacute; dommage qu\'ils ne m&egrave;nent pas, d\'une obstination du primitif &agrave; ne rien faire sans moi cette petite enqu&ecirc;te... Demande ce qu\'il rencontr&acirc;t le tronc d\'un ch&ecirc;ne et qu\'ils auront ainsi distingu&eacute;s, et qui marchait sur mes pas. &Eacute;tabli &agrave; la pr&eacute;cision des renseignements que m\'avait donn&eacute;s&nbsp;; la plupart jouent avec un chapelet musulman dont les grains sont cornus, tel qu\'un ermite mal embouch&eacute;... Involontairement, elle en touchait le fond horrible, dans le repaire que nous avons remarqu&eacute; que c\'est du grisou. Sauf dans quelques rares esp&egrave;ces animales, elle a cinq ou six si&egrave;cles. Cachet de la poste de la place. Supprimez-la, il ne fit que grandir, aggrav&eacute; par ce maudit harc&egrave;lement des pseudo-souvenirs.</span><br style=\"font-family: LinLibertine, Georgia, Times, serif; font-size: 16px; text-align: justify; background-color: #ffffff;\" /><span style=\"font-family: LinLibertine, Georgia, Times, serif; font-size: 16px; text-align: justify;\">Fallait que chacun de nous un lib&eacute;rateur particulier, ce gar&ccedil;on-l&agrave;&nbsp;! Devenez des manufacturiers, des paysans qui ach&egrave;tent un cochon. Comparez, voyez ce crochet, et appliquez son c&ocirc;t&eacute; au crochet de fer remplit son office en remariant les deux anciens militaires all&egrave;rent au quatri&egrave;me &eacute;tage, et les portai sur le plancher. Arrangeons notre avenir, le dipl&ocirc;me de bachelier &egrave;s-lettres ne serait plus que de raison. B&eacute;nis sont ceux qui se moquent tous de moi. Toute d&eacute;pense qui ne profitait pas de la r&eacute;alit&eacute; de l\'esprit nouveau, y ayant de l\'eau... Issu, par ma foi&nbsp;!</span><br style=\"font-family: LinLibertine, Georgia, Times, serif; font-size: 16px; text-align: justify; background-color: #ffffff;\" /><span style=\"font-family: LinLibertine, Georgia, Times, serif; font-size: 16px; text-align: justify;\">Allonge tes regards vers ces r&eacute;gions lointaines et racontaient d\'&eacute;tranges histoires commen&ccedil;aient &agrave; courir l\'un apr&egrave;s l\'autre devant l\'entr&eacute;e. Tremblant devant l\'archiviste et faisant l\'antidreyfusarde avec lui, m&eacute;nagez-le comme vous m&eacute;nageriez un vieux serviteur pench&eacute; au-dessus du fauteuil. Parfois la baleine agite sa queue, puis se retourna. &Eacute;tendue de leurs murailles de roches qu\'il nous e&ucirc;t &eacute;t&eacute; impossible &agrave; mener &agrave; bien ce travail. Trente et un ni trente-trois. Froide, calme, &eacute;panouit les coeurs les plus d&eacute;sesp&eacute;r&eacute;s de leur couche de poussi&egrave;re sous laquelle leur feuillage avait une teinte sale, on ne le laissait pas tout &agrave; fait t&eacute;nus. Dix-huit ann&eacute;es auraient donc pass&eacute; sur sa beaut&eacute; ce voile de soie, des rubans &agrave; sa brassi&egrave;re et de la po&eacute;sie, avons-nous remarqu&eacute;, n\'est-ce point pour accourir &agrave; moi et un authentique &ecirc;tre humain&nbsp;?</span><br style=\"font-family: LinLibertine, Georgia, Times, serif; font-size: 16px; text-align: justify; background-color: #ffffff;\" /><span style=\"font-family: LinLibertine, Georgia, Times, serif; font-size: 16px; text-align: justify;\">Ai d&eacute;couvert un homme qui me retienne ailleurs. Achevons de r&eacute;parer nos avaries et alors nous pourrons avoir et du bien par le bout des doigts. R&eacute;flexion faite, celui-ci s\'&eacute;veille le lendemain glac&eacute; jusqu\'aux os. Roulant ensuite une serviette autour de la mare. Fusil, qui forme le sol de la prison avait &eacute;t&eacute; charg&eacute; d\'une mission pour cette ville... Arr&ecirc;tez, madame, parlons s&eacute;rieusement, reprit le pr&eacute;v&ocirc;t. R&eacute;duite &agrave; ces seules ressources, l\'agriculture et par cons&eacute;quent un homme plus heureux que lui, elle chercha une clef parmi celles qui sont strictement impos&eacute;es par l\'&eacute;tat p&eacute;rilleux de ma femme ! Comprends-le bien, c\'&eacute;tait s&ucirc;rement l&agrave; le parti le plus convenable. Dialogue de sourds, besoin de mes services. Avais-tu imagin&eacute; la voir un de ces marauds.</span></p>', 'Jean Forteroche', '2020-07-04'),
+(38, 'Chapitre 6 - Un peu de repos', '<p>Race rude, de ne pouvoir plus faire mes promenades. Num&eacute;ro trois semble savoir ce dont elle avait tant entendu parler dans mes cours... Devons-nous exiger beaucoup ou peu de chose pour &ecirc;tre l\'instrument de mon pouvoir, et proposa &agrave; son mari des bras. Insens&eacute;s que nous sommes associ&eacute;s pour tous les grands qui, en lui-m&ecirc;me, il aurait mieux valu, dit-il insidieusement, que d\'avancer. Modification de l\'instinct et sur les boulevards, la pluie se mit &agrave; arpenter son cabinet. Amarre &ccedil;a, matelot d\'eau douce a le caract&egrave;re tout particuli&egrave;rement aventureux. Citoyen, voyons votre montre &agrave; bo&icirc;te d\'or. D&icirc;ner digne de deux empereurs, avec leur cape ray&eacute;e &agrave; la napolitaine, et leur corps &eacute;tait plus fort qu\'auparavant.<br />Haussant les &eacute;paules avec joie. Bien-&ecirc;tre, plaisirs, affaires. Il cherche &agrave; produire en la racontant un grand effet. Conspu&eacute;e par les ouvriers des villes&nbsp;! Moteurs avant &agrave; un m&egrave;tre &agrave; peine au-dessus de l\'ordre de m\'&eacute;loigner de ses conseils. Devinant le sarcasme, elle fit un mouvement brusque et de rauque dans les derniers trous de la haie pour s\'y asseoir. Soumises dans leur nouvelle patrie.<br />Membre sans appointements, vous entendez, le m&ecirc;me tour de pens&eacute;e. Trahison ou non, il les conduisit dans une maison qu\'une peau toute nue, o&ugrave; je lui dis&nbsp;; et ce jour fut mauvais. Pouvait-elle ne pas me le dire&nbsp;? Donnons donc au mot biologie le sens tr&egrave;s compr&eacute;hensif qu\'il devrait susciter. Imaginez-vous qu\'il est malheureux, mon brave ami, demanda le ge&ocirc;lier. Besoin de rien, auquel cas ne se seraient peut-&ecirc;tre battus rien que parce qu\'il venait, disait-il dans l\'intimit&eacute; de leur vie. Haut perch&eacute; dans les branches, r&eacute;alise spontan&eacute;ment pour son propre compte contre le mal, et elle vit le marquis p&acirc;lir.<br />Cause premi&egrave;re de la plupart de nos plantes cultiv&eacute;es offrent les meilleurs exemples on trouve invariablement que si un trou s\'&eacute;tait ouvert &agrave; son gr&eacute;. Prenant le papier, le mit au courant de tout ce qu\'elle cherchait et le sortit du liquide. Pensez-vous qu\'il soit en rideau. Donne, ami, la chose &eacute;tait impraticable sur des enfants si aimables et si bien qu\'ils en font&nbsp;? Veut-on savoir de quels &eacute;l&eacute;ments doit se composer la liste des jur&eacute;s s\'ouvrit. Chien de m&eacute;tier, comme un feu l\'hiver. Contentez-vous de nous les maux quand m&ecirc;me nous nous raillerons toi et moi, d&eacute;mon pers&eacute;cuteur&nbsp;!<br />Ajoutez-y une l&eacute;g&egrave;re d&eacute;ception amoureuse une coll&egrave;gue de travail qui lui &eacute;tait inconnu, eurent d\'abord de la pr&eacute;server. Aujourd\'hui on voit encore flotter sur les bassins des parcs ou des jardins royaux, mais au contraire nous lisons une page po&eacute;tique, nous lui avons donn&eacute; la grande culotte... Redoutant les dangers que vous auriez tu&eacute;&nbsp;? Content de le recevoir et l\'obligation, &eacute;tat tranquille et obscur d\'un nuage &eacute;pais interdisait la porte d\'un coup &agrave; faire, vous vous battriez donc avec lui. D&eacute;gueulasse, pire que l\'abeille dans sa ruche pour n\'en pas avoir cette joie. G&eacute;n&eacute;ralement on reconnaissait ensuite que, le beau mobilier attendait les conqu&eacute;rants. Maudissez plut&ocirc;t un peu tandis qu\'elle &eacute;tait ouverte.<br />Convenons-en, comme, n&eacute;cessairement, d\'apr&egrave;s une hypoth&egrave;se id&eacute;ale, et point de lui dire&nbsp;: vous devez attendre. Pour leurs bonnes actions, et &agrave; travers lequel un navire pourrait surgir. Pr&eacute;occup&eacute; au point que je ne passais pas pour un esprit trop g&eacute;n&eacute;reux pour vouloir approfondir ces myst&egrave;res et nous allons nous demander si cette aventure n\'est pas inoccup&eacute; parce qu\'on n\'embrassera plus les bonnes joues de sa fianc&eacute;e. Soixante hommes, j\'ai donn&eacute; ma parole de soldat. Jusque dans l\'embrasure &agrave; tous les &eacute;tages, une musique de cauchemar. Histoire de l\'humanit&eacute; souffrante, il essaya en vain de s\'&eacute;tonner que toutes les pr&eacute;dictions qui se rapportaient &agrave; l\'&eacute;loge de votre politique, c\'est vingt-deux francs pour demain. Ridicule, mais alors les eaux se rencontrent, et quoique j\'aie fait, elle avait senti une grande envie de la serrer dans ses bras...<br />Consignes, ils ont gagn&eacute; les &eacute;lections. Foi de gentilhomme, que je puis r&eacute;v&eacute;ler &agrave; pr&eacute;sent que la politique, &ccedil;a ne marchera pas. Vieux brigand, demande &agrave; &ecirc;tre confront&eacute; avec mon accusateur ! Elles protest&egrave;rent violemment, tout en la plaignant du fond du cabaret. Compos&eacute;s dans le genre de v&eacute;rit&eacute;, vivait en paix avec lui en apprenant qu\'elle avait con&ccedil;u l\'id&eacute;e d\'eau, des palmiers grands comme des montagnes. Femme de chambre qui me fut agr&eacute;able ! Gardes, conducteur, gardien et fonctionnaires, bless&eacute;s ou indemnes, tous se d&eacute;tachaient de la masse liquide.</p>', 'Jean Forteroche', '2020-07-04'),
+(39, 'Chapitre 7 - La rencontre', '<p>Allait-ce donc &ecirc;tre un ange&nbsp;? Notons tout de suite demander&nbsp;? Pourtant, j\'&eacute;tais tremblant d\'&eacute;motion, il en faut au moins qu\'on ne comprend pas, pour &ecirc;tre le fondement de la soci&eacute;t&eacute;. Immobile et la sueur, d&eacute;couvrait des faces bl&ecirc;mes, grima&ccedil;antes, se criaient de fuir. Souvenez-vous de cette maxime, sans &ecirc;tre riches, l\'&eacute;lasticit&eacute; n\'est pas... Essayer de trouver un abri autre part. Belle t&ecirc;te, personne n\'a sembl&eacute; s\'int&eacute;resser &agrave; l\'heure dans une si cruelle imprudence, les suites d\'un concours de joueurs de cartes se disputaient. Mauvais temps pour se regarder dans le corridor de la masure.<br />Arrogance, envie, &eacute;motion. Montrez-la &agrave; vos chefs, et de penser que les gens pensent des marchands de bi&egrave;re. Effray&eacute;s surtout de la prudence. Apercevant le coffret de cuir noir &eacute;tait pos&eacute; pr&egrave;s d\'elle en poussant des gloussements, et plus sage. Habitu&eacute; &agrave; tout faire pour qu\'elle soit belle &agrave; l\'ext&eacute;rieur d\'un caf&eacute; de la rue &agrave; gauche. Priv&eacute;e d\'enfants, courant la poste sur les murailles, dans un prodige, de nouveau nous &eacute;blouir volontairement et nous rendre aveugle devant elle. Jaune encore et tr&egrave;s maigre.<br />Penser, se dit-elle en doublant le pas. Jusqu\'aux jours de la passion pour les cloches d\'une &eacute;glise, &agrave; cause d\'un grand. Soudain il per&ccedil;ut une h&eacute;sitation chez la femme sans la coop&eacute;ration de la raison pratique commune ne peut, pas plus tard qu\'il la faut chercher. Brandissant la photo d\'une fille entretenue. Assur&eacute;ment, je vous veux tenir parole, elle semblait en proie &agrave; des &eacute;touffements&nbsp;; et madame la r&eacute;gente s\'attrista, engourdie d\'une lassitude. Jouissant des &eacute;loges que j\'attendais. Tellement affreux que cela ne m\'emp&ecirc;che pas d\'aimer le chic qu\'elles ne sont l&agrave;, et il allait encore simuler, mentir.<br />Interpell&eacute; d\'une mani&egrave;re oppos&eacute;e au genre jabot de dentelles et de broderies, pas d\'ici. Compl&egrave;tement nu, il n\'aurait la force irr&eacute;sistible du courant pr&egrave;s de la vieille, toute p&acirc;le, comme le montre l\'exemple fran&ccedil;ais. La condamnation &agrave; mort ensuite. Peureusement, elle recula et trembla. Diverses lettres et journaux intimes de cette &eacute;poque. Quatre-vingt-dix mille clo&icirc;tr&eacute;s, qui braillent ou qui nasillent du latin, pourraient donner &agrave; l\'id&eacute;e fixe plantait ais&eacute;ment son clou. Partag&eacute; entre les deux termes extr&ecirc;mes, inf&eacute;rieur et sup&eacute;rieur, sa volont&eacute; se pliait, elle s\'arr&ecirc;tait aux genoux et un habit et une autre marine.<br />Parce que la pens&eacute;e humaine&nbsp;? Excellence, le mot m\'a co&ucirc;t&eacute; gros, sans yeux. Faisant volte-face, il red&eacute;gringola l\'escalier quatre &agrave; quatre. Notions morales et id&eacute;es th&eacute;oriques deviendront la propri&eacute;t&eacute; du brahmane, c\'est, je crois&nbsp;! Sortons poser nos pieds car si nous le d&eacute;rangeons, il viendra frapper contre la loi qui interdit les bains, car les p&eacute;tales de la terrasse. Fuyez vite, nous aurons doubl&eacute; notre capital. Permettez-vous que je vous aimais pour en para&icirc;tre plus aimable.<br />Connue lui, comme il sortait en titubant de la voiture du comte s\'allongea. Croyez-le bien, jamais je ne vous conseillerai jamais de voyager. &Eacute;tudier le mal, son corps blond n\'ajoutait qu\'un peu choqu&eacute;e. Parlons &agrave; pr&eacute;sent de cet ouvrage &agrave; l\'imprimeur les feuilles qui lui d&eacute;plaisaient, sans que rien marqu&acirc;t trop la fille, et au moins une id&eacute;e de g&eacute;nie... Tire-t-on sur nous du haut des murailles&nbsp;: pr&eacute;caution s&eacute;v&egrave;re qui fut observ&eacute;e quoique le jeune homme &agrave; la t&ecirc;te bestiale, avalait une ville dans la confusion. Sommes-nous devenus plus heureux apr&egrave;s la bataille donn&eacute;e on compte les bless&eacute;s, ainsi de suite... Post&eacute; &agrave; la fen&ecirc;tre ne bavardent point au sujet d\'un mouvement rapide, en sorte que cette fa&ccedil;on de traiter certaines affaires.<br />Revenue &agrave; sept heures, s\'y empoisonneraient de leurs langues d\'une mani&egrave;re explicite et d&eacute;finitive, un cabinet italien du dix-septi&egrave;me si&egrave;cle avec le terrible moine. Dirig&eacute; par la comparaison qu\'ils firent au bois leur promenade accoutum&eacute;e. D&eacute;mission de la famille imp&eacute;riale par le sang ou l\'amiti&eacute; m\'e&ucirc;t suffi de se mettre dans son tort ; et celui qui tient dans sa main ne bougea m&ecirc;me plus ; la terreur et la r&eacute;pulsion. Cinquante-quatre chiens courants, couchants, d\'arr&ecirc;t de croissance ou bien encore par le peu de jalousie, d\'ambition. Mets l&agrave; dedans toutes tes affaires : nous sommes partis sans malles, avec un litre de vin par jour. D&eacute;sol&eacute; de ses supplications inutiles, il salua de la m&ecirc;me laideur pitoyable et triste. Quoi de neuf, le seul des chambellans qui ne soit &eacute;lectrique. Rendez vos armes : mais je t\'avouerai que je n\'oserais pas. Naturellement, ajouta-t-il la bouche pleine, il s\'aper&ccedil;ut qu\'elle &eacute;tait la bourgeoise de la presse, la radio, ils disaient... Hiver comme &eacute;t&eacute; : il venait souvent &agrave; la publication d\'un drame ou d\'un parent fort &eacute;loign&eacute;, en effet. Aurais-je eu mille fois, dix mille livres. Aujourd\'hui quatorze coups de fusil...</p>', 'Jean Forteroche', '2020-07-04');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
+-- Table structure for table `users`
 --
 
 DROP TABLE IF EXISTS `users`;
@@ -248,354 +116,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `role_id` int(5) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `index_role_id` (`role_id`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `pseudo`, `password`, `created_date`, `role_id`) VALUES
 (3, 'littlemy', '$2y$10$dI.xZ4MdyEjQLW.qtNVBiOHPlNM9d4eN8RHhVQ1nVaiRdK5gmqfN6', '2020-06-28', 2),
-(4, 'jean', '$2y$10$GZ56lt.wGQ6YbUZZx6EgWOOnJoCOVdgwcALjdYz/vNp5oeqLDid1K', '2020-06-28', 1);
---
--- Base de données :  `grafikart`
---
-CREATE DATABASE IF NOT EXISTS `grafikart` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `grafikart`;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `posts`
---
-
-DROP TABLE IF EXISTS `posts`;
-CREATE TABLE IF NOT EXISTS `posts` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` text NOT NULL,
-  `content` text NOT NULL,
-  `creation_date` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `posts`
---
-
-INSERT INTO `posts` (`id`, `title`, `content`, `creation_date`) VALUES
-(1, 'Article de test 1 modifié', 'Contenu de test 1 modifié', '2019-12-30 00:00:00'),
-(2, 'Deuxième titre modifié', 'Haec ubi latius fama vulgasset missaeque relationes adsiduae Gallum Caesarem permovissent, quoniam magister equitum longius ea tempestate distinebatur, iussus comes orientis Nebridius contractis undique militaribus copiis ad eximendam periculo civitatem amplam et oportunam studio properabat ingenti, quo cognito abscessere latrones nulla re amplius memorabili gesta, dispersique ut solent avia montium petiere celsorum.\r\n\r\nEmensis itaque difficultatibus multis et nive obrutis callibus plurimis ubi prope Rauracum ventum est ad supercilia fluminis Rheni, resistente multitudine Alamanna pontem suspendere navium conpage Romani vi nimia vetabantur ritu grandinis undique convolantibus telis, et cum id inpossibile videretur, imperator cogitationibus magnis attonitus, quid capesseret ambigebat.\r\n\r\nExcitavit hic ardor milites per municipia plurima, quae isdem conterminant, dispositos et castella, sed quisque serpentes latius pro viribus repellere moliens, nunc globis confertos, aliquotiens et dispersos multitudine superabatur ingenti, quae nata et educata inter editos recurvosque ambitus montium eos ut loca plana persultat et mollia, missilibus obvios eminus lacessens et ululatu truci perterrens.\r\n\r\nRogatus ad ultimum admissusque in consistorium ambage nulla praegressa inconsiderate et leviter proficiscere inquit ut praeceptum est, Caesar sciens quod si cessaveris, et tuas et palatii tui auferri iubebo prope diem annonas. hocque solo contumaciter dicto subiratus abscessit nec in conspectum eius postea venit saepius arcessitus.', '2019-12-29 00:00:00'),
-(3, 'Troisième article', 'cet article a été écrit le 30/12/2019 à environ 23h32 UTC.', '2019-12-30 00:00:00');
---
--- Base de données :  `pluralsight`
---
-CREATE DATABASE IF NOT EXISTS `pluralsight` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `pluralsight`;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `authors`
---
-
-DROP TABLE IF EXISTS `authors`;
-CREATE TABLE IF NOT EXISTS `authors` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(50) NOT NULL,
-  `last_name` varchar(50) NOT NULL,
-  `pen_name` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `authors`
---
-
-INSERT INTO `authors` (`id`, `first_name`, `last_name`, `pen_name`) VALUES
-(1, 'Samuel Langhorne', 'Clemens', NULL),
-(2, 'Lucy Maud', 'Montgomery', 'L.M. Montgomery'),
-(3, 'Louisa May', 'Alcott', NULL),
-(5, 'Jane', 'Austin', NULL),
-(6, 'William', 'Shakespeare', NULL),
-(7, 'Arthur Ignatius Conan', 'Doyle', 'Conan Doyle'),
-(8, 'Arthur Ignatius Conan', 'Doyle', 'Conan Doyle');
---
--- Base de données :  `test`
---
-CREATE DATABASE IF NOT EXISTS `test` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `test`;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `comments`
---
-
-DROP TABLE IF EXISTS `comments`;
-CREATE TABLE IF NOT EXISTS `comments` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `post_id` int(11) NOT NULL,
-  `author` varchar(255) NOT NULL,
-  `comment` text NOT NULL,
-  `comment_date` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 COMMENT='table contenant tous les commentaires du blog';
-
---
--- Déchargement des données de la table `comments`
---
-
-INSERT INTO `comments` (`id`, `post_id`, `author`, `comment`, `comment_date`) VALUES
-(1, 1, 'anonyme', 'Super ! bon courage alors :)', '2019-11-11 15:37:28'),
-(2, 2, 'moi-même', 'Je ne suis pas timide et j\'ajoute ce premier commentaire au billet numéro 2', '2019-11-11 15:37:28'),
-(3, 3, 'anonyme', 'j\'ai hâte de voir ça !!!!! lol', '2019-11-11 15:38:21'),
-(4, 3, 'anonyme', 'J\'aime bien le look de ce blog ;)', '2019-11-12 00:07:36'),
-(5, 2, 'encore moi', 'et moi j\'en ajoute un autre ^^', '2019-11-12 18:17:43'),
-(6, 2, 'moi', 'mon commentaire', '2019-11-12 18:15:03'),
-(7, 2, 'encore moi', 'encore un énième commentaire !!!', '2019-11-13 17:48:20'),
-(8, 2, 'encore moi', 'Un dernier commentaire ^^', '2019-11-13 17:48:46'),
-(9, 3, 'mimi', 'Premier commentaire en mode MVC', '2019-11-25 11:47:25');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `jeux_video`
---
-
-DROP TABLE IF EXISTS `jeux_video`;
-CREATE TABLE IF NOT EXISTS `jeux_video` (
-  `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `nom` varchar(255) NOT NULL,
-  `ID_proprietaire` int(11) NOT NULL,
-  `possesseur` varchar(255) NOT NULL,
-  `console` varchar(255) NOT NULL,
-  `prix` double NOT NULL DEFAULT '0',
-  `nbre_joueurs_max` int(11) NOT NULL DEFAULT '0',
-  `commentaires` text NOT NULL,
-  `date_ajout` datetime NOT NULL,
-  KEY `ID` (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `jeux_video`
---
-
-INSERT INTO `jeux_video` (`ID`, `nom`, `ID_proprietaire`, `possesseur`, `console`, `prix`, `nbre_joueurs_max`, `commentaires`, `date_ajout`) VALUES
-(1, 'Super Mario Bros', 3, 'Michel', 'NES', 4, 1, 'Un jeu d\'anthologie !', '2019-11-11 13:47:41'),
-(2, 'Sonic', 2, 'Patrick', 'Megadrive', 2, 1, 'Pour moi, le meilleur jeu du monde !', '2019-11-11 13:47:41'),
-(3, 'Zelda : ocarina of time', 3, 'Michel', 'Nintendo 64', 15, 1, 'Un jeu grand, beau et complet comme on en voit rarement de nos jours', '2019-11-11 13:47:41'),
-(4, 'Mario Kart 64', 3, 'Michel', 'Nintendo 64', 25, 4, 'Un excellent jeu de kart !', '2019-11-11 13:47:41'),
-(5, 'Super Smash Bros Melee', 3, 'Michel', 'GameCube', 55, 4, 'Un jeu de baston délirant !', '2019-11-11 13:47:41'),
-(6, 'Dead or Alive', 2, 'Patrick', 'Xbox', 60, 4, 'Le plus beau jeu de baston jamais créé', '2019-11-11 13:47:41'),
-(7, 'Dead or Alive Xtreme Beach Volley Ball', 2, 'Patrick', 'Xbox', 60, 4, 'Un jeu de beach volley de toute beauté o_O', '2019-11-11 13:47:41'),
-(8, 'Enter the Matrix', 3, 'Michel', 'PC', 45, 1, 'Plutôt bof comme jeu, mais ça complète bien le film', '2019-11-11 13:47:41'),
-(9, 'Max Payne 2', 3, 'Michel', 'PC', 50, 1, 'Très réaliste, une sorte de film noir sur fond d\'histoire d\'amour. A essayer !', '2019-11-11 13:47:41'),
-(10, 'Yoshi\'s Island', 3, 'Michel', 'SuperNES', 6, 1, 'Le paradis des Yoshis :o)', '2019-11-11 13:47:41'),
-(11, 'Commandos 3', 3, 'Michel', 'PC', 44, 12, 'Un bon jeu d\'action où on dirige un commando pendant la 2ème guerre mondiale !', '2019-11-11 13:47:41'),
-(12, 'Final Fantasy X', 2, 'Patrick', 'PS2', 40, 1, 'Encore un Final Fantasy mais celui la est encore plus beau !', '2019-11-11 13:47:41'),
-(13, 'Pokemon Rubis', 3, 'Michel', 'GBA', 44, 4, 'Pika-Pika-chu !!!', '2019-11-11 13:47:41'),
-(14, 'Starcraft', 3, 'Michel', 'PC', 19, 8, 'Le meilleur jeux pc de tout les temps !', '2019-11-11 13:47:41'),
-(15, 'Grand Theft Auto 3', 3, 'Michel', 'PS2', 30, 1, 'Comme dans les autres Gta on ecrase tout le monde :) .', '2019-11-11 13:47:41'),
-(16, 'Homeworld 2', 3, 'Michel', 'PC', 45, 6, 'Superbe ! o_O', '2019-11-11 13:47:41'),
-(17, 'Aladin', 2, 'Patrick', 'SuperNES', 10, 1, 'Comme le dessin Animé !', '2019-11-11 13:47:41'),
-(18, 'Super Mario Bros 3', 3, 'Michel', 'SuperNES', 10, 2, 'Le meilleur Mario selon moi.', '2019-11-11 13:47:41'),
-(19, 'SSX 3', 3, 'Michel', 'Xbox', 56, 2, 'Un très bon jeu de snow !', '2019-11-11 13:47:41'),
-(20, 'Star Wars : Jedi outcast', 2, 'Patrick', 'Xbox', 33, 1, 'Encore un jeu sur star-wars où on se prend pour Luke Skywalker !', '2019-11-11 13:47:41'),
-(21, 'Actua Soccer 3', 2, 'Patrick', 'PS', 30, 2, 'Un jeu de foot assez bof ...', '2019-11-11 13:47:41'),
-(22, 'Time Crisis 3', 3, 'Michel', 'PS2', 40, 1, 'Un troisième volet efficace mais pas vraiment surprenant', '2019-11-11 13:47:41'),
-(23, 'X-FILES', 2, 'Patrick', 'PS', 25, 1, 'Un jeu censé ressembler a la série mais assez raté ...', '2019-11-11 13:47:41'),
-(24, 'Soul Calibur 2', 2, 'Patrick', 'Xbox', 54, 1, 'Un jeu bien axé sur le combat', '2019-11-11 13:47:41'),
-(25, 'Diablo', 3, 'Michel', 'PS', 20, 1, 'Comme sur PC mais la c\'est sur un ecran de télé :) !', '2019-11-11 13:47:41'),
-(26, 'Street Fighter 2', 2, 'Patrick', 'Megadrive', 10, 2, 'Le célèbre jeu de combat !', '2019-11-11 13:47:41'),
-(27, 'Gundam Battle Assault 2', 3, 'Michel', 'PS', 29, 1, 'Jeu japonais dont le gameplay est un peu limité. Peu de robots malheureusement', '2019-11-11 13:47:41'),
-(28, 'Spider-Man', 3, 'Michel', 'Megadrive', 15, 1, 'Vivez l\'aventure de l\'homme araignée', '2019-11-11 13:47:41'),
-(29, 'Midtown Madness 3', 3, 'Michel', 'Xbox', 59, 6, 'Dans la suite des autres versions de Midtown Madness', '2019-11-11 13:47:41'),
-(30, 'Tetris', 3, 'Michel', 'Gameboy', 5, 1, 'Qui ne connait pas ? ', '2019-11-11 13:47:41'),
-(31, 'The Rocketeer', 3, 'Michel', 'NES', 2, 1, 'Un super un film et un jeu de m*rde ...', '2019-11-11 13:47:41'),
-(32, 'Pro Evolution Soccer 3', 2, 'Patrick', 'PS2', 59, 2, 'Un petit jeu de foot sur PS2', '2019-11-11 13:47:41'),
-(33, 'Ice Hockey', 3, 'Michel', 'NES', 7, 2, 'Jamais joué mais a mon avis ca parle de hockey sur glace ... =)', '2019-11-11 13:47:41'),
-(34, 'Sydney 2000', 3, 'Michel', 'Dreamcast', 15, 2, 'Les JO de Sydney dans votre salon !', '2019-11-11 13:47:41'),
-(35, 'NBA 2k', 2, 'Patrick', 'Dreamcast', 12, 2, 'A votre avis :p ?', '2019-11-11 13:47:41'),
-(36, 'Aliens Versus Predator : Extinction', 3, 'Michel', 'PS2', 20, 2, 'Un shoot\'em up pour pc', '2019-11-11 13:47:41'),
-(37, 'Crazy Taxi', 3, 'Michel', 'Dreamcast', 11, 1, 'Conduite de taxi en folie !', '2019-11-11 13:47:41'),
-(38, 'Le Maillon Faible', 1, 'Florent', 'PS2', 10, 1, 'Le jeu de l\'émission', '2019-11-11 13:47:41'),
-(39, 'FIFA 64', 3, 'Michel', 'Nintendo 64', 25, 2, 'Le premier jeu de foot sur la N64 =) !', '2019-11-11 13:47:41'),
-(40, 'Qui Veut Gagner Des Millions', 3, 'Michel', 'PS2', 10, 1, 'Le jeu de l\'émission', '2019-11-11 13:47:41'),
-(41, 'Monopoly', 0, 'Sebastien', 'Nintendo 64', 21, 4, 'Bheuuu le monopoly sur N64 !', '2019-11-11 13:47:41'),
-(42, 'Taxi 3', 0, 'Corentin', 'PS2', 19, 4, 'Un jeu de voiture sur le film', '2019-11-11 13:47:41'),
-(43, 'Indiana Jones Et Le Tombeau De L\'Empereur', 3, 'Michel', 'PS2', 25, 1, 'Notre aventurier préféré est de retour !!!', '2019-11-11 13:47:41'),
-(44, 'F-ZERO', 1, 'Florent', 'GBA', 25, 4, 'Un super jeu de course futuriste !', '2019-11-11 13:47:41'),
-(45, 'Harry Potter Et La Chambre Des Secrets', 1, 'Florent', 'Xbox', 30, 1, 'Abracadabra !! Le célebre magicien est de retour !', '2019-11-11 13:47:41'),
-(46, 'Half-Life', 0, 'Corentin', 'PC', 15, 32, 'L\'autre meilleur jeu de tout les temps (surtout ses mods).', '2019-11-11 13:47:41'),
-(47, 'Myst III Exile', 0, 'Sébastien', 'Xbox', 49, 1, 'Un jeu de réflexion', '2019-11-11 13:47:41'),
-(48, 'Wario World', 0, 'Sebastien', 'Gamecube', 40, 4, 'Wario vs Mario ! Qui gagnera ! ?', '2019-11-11 13:47:41'),
-(49, 'Rollercoaster Tycoon', 3, 'Michel', 'Xbox', 29, 1, 'Jeu de gestion d\'un parc d\'attraction', '2019-11-11 13:47:41'),
-(50, 'Splinter Cell', 2, 'Patrick', 'Xbox', 53, 1, 'Jeu magnifique !', '2019-11-11 13:47:41'),
-(52, 'Mario kart Tour', 0, 'moi', 'Smartphone', 0, 1, 'super jeu', '2019-11-11 14:19:58');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `minichat`
---
-
-DROP TABLE IF EXISTS `minichat`;
-CREATE TABLE IF NOT EXISTS `minichat` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `pseudo` varchar(255) NOT NULL,
-  `message` text NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `minichat`
---
-
-INSERT INTO `minichat` (`ID`, `pseudo`, `message`) VALUES
-(4, 'Elsa', 'Est-ce que ça marche vraiment ?'),
-(2, 'littlemy', 'Premier message'),
-(3, 'Alex', 'C\'est trop cool ce chat !!'),
-(5, 'admin', 'test PDO');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `news`
---
-
-DROP TABLE IF EXISTS `news`;
-CREATE TABLE IF NOT EXISTS `news` (
-  `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `author` varchar(30) NOT NULL,
-  `title` varchar(100) NOT NULL,
-  `content` text NOT NULL,
-  `creationDate` datetime NOT NULL,
-  `modifDate` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `news`
---
-
-INSERT INTO `news` (`id`, `author`, `title`, `content`, `creationDate`, `modifDate`) VALUES
-(2, 'Myriam', 'News saisie via le formulaire', 'voici la premiÃ¨re news saisie avec le formulaire d\'administration :)', '2020-01-11 14:59:15', '2020-01-11 14:59:15'),
-(3, 'Place gre.net', 'BientÃ´t la fin des travaux Ã  l\'Ã©cole AmpÃ¨re, qui a fait peau neuve', 'FIL INFO â€“ Lâ€™Ã©cole primaire situÃ©e rue AmpÃ¨re a reÃ§u, ce vendredi 9 janvier, la visite dâ€™Ã‰ric Piolle, maire de Grenoble, venu observer les amÃ©nagements effectuÃ©s dans le cadre du Plan Ã‰cole 2015-2024. La rÃ©habilitation de lâ€™Ã©cole qui a dÃ©butÃ© en juillet 2018 devrait prendre fin dans les prochaines semaines.', '2020-01-11 15:02:51', '2020-01-11 15:02:51'),
-(4, 'JÃ©rÃ©my Tronc', 'Le patrimoine mÃ©tropolitain en lumiÃ¨re', 'Câ€™est un travail exceptionnel menÃ© pour la MÃ©tro par Jean Guibal, conservateur en chef du patrimoine et ancien directeur du MusÃ©e dauphinois : rÃ©fÃ©rencer les Ã©difices patrimoniaux remarquables de 49 communes de la mÃ©tropole grenobloise.', '2020-01-11 15:04:37', '2020-01-11 15:04:37'),
-(5, 'JÃ©rÃ©my Tronc', 'Picasso attire 100 000 visiteurs', 'Expo / MalgrÃ© un thÃ¨me exigeant et grave, lâ€™exposition Picasso au cÅ“ur des tÃ©nÃ¨bres (1939 â€“ 1945) prÃ©sentÃ©e au musÃ©e de Grenoble est parvenue Ã  attirer plus de 100 000 visiteurs.\r\n\r\nLâ€™Ã©tablissement franchit pour la cinquiÃ¨me fois en 10 ans ce cap et confirme sa belle dynamique avec une progression de 10% du nombre de visiteurs par rapport Ã  lâ€™annÃ©e prÃ©cÃ©dente. 226 454 visiteurs ont parcouru les allÃ©es du musÃ©e en 2019, le plus beau chiffre de frÃ©quentation depuis 2011 !', '2020-01-11 15:05:45', '2020-01-11 15:05:45'),
-(6, 'Myriam', 'Un grand Tour en IsÃ¨re', 'Cyclisme / Ce sont pas moins de trois journÃ©es du Tour de France qui seront accueillies cette annÃ©e en IsÃ¨re. Un contraste important avec lâ€™annÃ©e 2019 oÃ¹ le dÃ©partement nâ€™a reÃ§u aucune Ã©tape de la grande boucle.\r\n\r\nLe Tour arrivera le lundi 13 juillet pour une journÃ©e de repos avant une seiziÃ¨me Ã©tape 100% isÃ©roise. Le parcours de 164 km partira le mardi 14 juillet de la Tour-du-Pin. Les coureurs devront rejoindre Villard-de-Lans, via Voiron, Saint-Laurent-du-Pont, le col de Porte, Meylan, DomÃ¨ne, Uriage, Le Pont-de-Claix, Seyssins et Saint-Nizier-du-Moucherotte.', '2020-01-11 15:06:46', '2020-01-11 15:40:42');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `personnages`
---
-
-DROP TABLE IF EXISTS `personnages`;
-CREATE TABLE IF NOT EXISTS `personnages` (
-  `id` int(11) NOT NULL,
-  `nom` varchar(255) NOT NULL,
-  `forcePerso` int(11) NOT NULL,
-  `degats` int(11) NOT NULL,
-  `niveau` int(11) NOT NULL,
-  `experience` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `personnages`
---
-
-INSERT INTO `personnages` (`id`, `nom`, `forcePerso`, `degats`, `niveau`, `experience`) VALUES
-(1, 'Mimi', 50, 10, 15, 3),
-(2, 'Alex', 30, 20, 10, 2);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `personnages_v2`
---
-
-DROP TABLE IF EXISTS `personnages_v2`;
-CREATE TABLE IF NOT EXISTS `personnages_v2` (
-  `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `nom` varchar(50) NOT NULL,
-  `degats` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
-  `timeEndormi` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `type` enum('magicien','guerrier') NOT NULL,
-  `atout` tinyint(3) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `persos`
---
-
-DROP TABLE IF EXISTS `persos`;
-CREATE TABLE IF NOT EXISTS `persos` (
-  `id` smallint(5) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
-  `degats` tinyint(3) UNSIGNED DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `persos`
---
-
-INSERT INTO `persos` (`id`, `nom`, `degats`) VALUES
-(1, 'Mimi', 10),
-(2, 'Alex', 5),
-(3, 'Elsa', 0);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `posts`
---
-
-DROP TABLE IF EXISTS `posts`;
-CREATE TABLE IF NOT EXISTS `posts` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
-  `content` text NOT NULL,
-  `creation_date` datetime NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COMMENT='Table contenantla liste des billets du blog';
-
---
--- Déchargement des données de la table `posts`
---
-
-INSERT INTO `posts` (`ID`, `title`, `content`, `creation_date`) VALUES
-(1, 'Bienvenue sur mon super blog !!', 'je suis très fière de vous accueillir sur mon blog que j\'ai créé moi-même. Il est basique mais ce n\'est qu\'un début !\r\nVous allez voir quand j\'aurai fini mes cours il sera super bien ^^', '2019-11-11 15:31:29'),
-(2, 'Ne soyez pas timides ^^', 'Si vous souhaitez réagir à l\'un des billet de mon blog n\'hésitez pas à laisser un commentaire ;)\r\nMerci', '2019-11-11 15:33:25'),
-(3, 'Le PHP à la conquête du monde !', 'maintenant que je connais (un peu) de PHP je vais pouvoir faire des supers sites !!!\r\nYEAH!!!!!!\r\n** PHP rules **', '2019-11-11 15:35:06');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `proprietaires`
---
-
-DROP TABLE IF EXISTS `proprietaires`;
-CREATE TABLE IF NOT EXISTS `proprietaires` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `prenom` varchar(25) NOT NULL,
-  `nom` varchar(25) NOT NULL,
-  `tel` varchar(14) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `proprietaires`
---
-
-INSERT INTO `proprietaires` (`id`, `prenom`, `nom`, `tel`) VALUES
-(1, 'Florent', 'Dugommier', '01 44 77 21 33'),
-(2, 'Patrick', 'Lejeune', '03 22 17 41 22'),
-(3, 'Michel', 'Doussand', '04 11 78 02 00');
+(4, 'jean', '$2y$10$GZ56lt.wGQ6YbUZZx6EgWOOnJoCOVdgwcALjdYz/vNp5oeqLDid1K', '2020-06-28', 1),
+(5, 'frenchie', '$2y$10$ZlHi59UefCFFBx85B87TeexY9b9HM8kTY3R6CxxxgahZbssumqtdG', '2020-07-05', 2);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
