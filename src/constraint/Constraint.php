@@ -8,7 +8,7 @@ class Constraint
     {
         if(empty($value))
         {
-            return '<p>Le champ '.$name.' saisi est vide</p>';
+            return '<p class="red-msg">Le champ '.$name.' est obligatoire</p>';
         }
     }
 
@@ -16,7 +16,7 @@ class Constraint
     {
         if(strlen($value) < $minSize)
         {
-            return '<p>Le champ '.$name.' doit contenir au moins '.$minSize.' caractères</p>';
+            return '<p class="red-msg">Le champ '.$name.' doit contenir au moins '.$minSize.' caractères</p>';
         }
     }
 
@@ -24,7 +24,7 @@ class Constraint
     {
         if(strlen($value) > $maxSize)
         {
-            return '<p>Le champ '.$name.' doit contenir au maximum '.$maxSize.' caractères</p>';
+            return '<p class="red-msg">Le champ '.$name.' doit contenir au maximum '.$maxSize.' caractères</p>';
         }
     }
 }

@@ -2,11 +2,11 @@
 
 <h2 class="page_title">Espace d'administration</h2>
 
-<p class="admin-msg"><?= $this->session->show('add_post'); ?></p> <!-- Le nouveau chapitre a bien été ajouté -->
-<pc class="admin-msg"><?= $this->session->show('edit_post'); ?></p>  <!-- Le chapitre a bien été modifié -->
-<p class="admin-msg"><?= $this->session->show('delete_post'); ?></p> <!-- Le chapitre a bien été supprimé -->
-<p class="admin-msg"><?= $this->session->show('deleteFlag'); ?></p>  <!-- Le commentaire a été autorisé -->
-<p class="admin-msg"><?= $this->session->show('delete_comment'); ?></p> <!-- Le commentaire a été supprimé -->
+<p class="green-msg"><?= $this->session->show('add_post'); ?></p> <!-- Le nouveau chapitre a été ajouté -->
+<pc class="green-msg"><?= $this->session->show('edit_post'); ?></p>  <!-- Le chapitre a été modifié -->
+<p class="yellow-msg"><?= $this->session->show('delete_post'); ?></p> <!-- Le chapitre a été supprimé -->
+<p class="yellow-msg"><?= $this->session->show('deleteFlag'); ?></p>  <!-- Le commentaire a été autorisé -->
+<p class="yellow-msg"><?= $this->session->show('delete_comment'); ?></p> <!-- Le commentaire a été supprimé -->
 
 <section id="admin_body">
 
@@ -43,16 +43,6 @@
         }
         ?>
     </table>
-
-    <!-- <div class="filter">
-        <form action="" method="post">
-            <h5>Filtrer les commentaires affichés ci-dessous</h5>
-            <label><input type="radio" name="status" value="0">Autorisé</label>
-            <label><input type="radio" name="status" value="1" checked>Signalé</label>
-            <label><input type="radio" name="status" value="2">Refusé</label>
-            <input type="submit" value="Filtrer" />
-        </form>
-    </div> -->
 
     <h4>Commentaires signalés</h4>
     <table id="comments-table">

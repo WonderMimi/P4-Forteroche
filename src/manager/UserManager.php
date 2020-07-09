@@ -45,7 +45,7 @@ class UserManager extends DatabaseManager
         $result = $this->createQuery($sql, [$form_post->get('pseudo')]);
         $alreadyExists = $result->fetchColumn();
         if ($alreadyExists) {
-            return '<p>Ce pseudo existe déjà</p>';
+            return '<p class="red-msg">Ce pseudo existe déjà</p>';
         }
     }
 

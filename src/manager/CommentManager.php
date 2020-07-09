@@ -67,4 +67,12 @@ class CommentManager extends DatabaseManager
         $result->closeCursor();
         return $comments;
     }
+
+    public function getPost_Id($commentId){
+        $sql = 'SELECT post_id FROM comments WHERE id = ?';
+        $result = $this->createQuery($sql, [$commentId]);
+        $postId = $result->fetchColumn(0);
+        $result->closeCursor();
+        return $postId;
+    }
 }

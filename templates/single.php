@@ -12,8 +12,8 @@
         <p class="creation">Créé le : <?= ($post->getCreated_date()); ?></p>
     </div>
 
-    <p class="green-msg"><?= $this->session->show('add_comment'); ?></p> <!-- Le nouveau commentaire a bien été ajouté -->
-    <p class="green-msg"><?= $this->session->show('flag_comment'); ?></p> <!-- Le commentaire a bien été signalé -->
+    <p class="green-msg"><?= $this->session->show('add_comment'); ?></p> <!-- Le nouveau commentaire a été ajouté -->
+    <p class="green-msg"><?= $this->session->show('flag_comment'); ?></p> <!-- Le commentaire a été signalé -->
     <br>
 
     <div id="add-comments">
@@ -34,11 +34,13 @@
                     if ($comment->isFlagged()) {
                     ?>
                         <p class="cmt-msg">Ce commentaire a déjà été signalé</p>
+                    </div>
+
                     <?php
                     } else {
                     ?>
                         <p class="cmt-msg"><a id="signal" href="../public/index.php?route=flagComment&commentId=<?= $comment->getId(); ?>">Signaler le commentaire</a></p>
-                </div>
+                    </div>
                 <?php
                 }
             }

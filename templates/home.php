@@ -12,8 +12,8 @@
 <div class="separator" id="billets"></div>
 <section id="home-section">
 
-    <p class="login-msg"><?= $this->session->show('register'); ?></p> <!-- Vous êtes maintenant inscrit(e) -->
-    <p class="login-msg"><?= $this->session->show('login'); ?></p>  <!-- Content de vous revoir -->
+    <p class="green-msg"><?= $this->session->show('register'); ?></p> <!-- Vous êtes maintenant inscrit(e) -->
+    <p class="green-msg"><?= $this->session->show('login'); ?></p>  <!-- Content de vous revoir -->
 
 
     <h2 class="page_title">Mes 5 derniers chapitres</h2>
@@ -33,7 +33,7 @@
     <?php
     }
     ?>
-
+    <!-- Button to go back to top of page -->
     <button onclick="topFunction()" id="GoToTopBtn" class="fas fa-chevron-up"></button>
     <script src="..\public\js\script.js"></script>
 </section>

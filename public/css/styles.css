@@ -65,7 +65,7 @@ a,
 a:link,
 li a:visited {
   text-decoration: none;
-  color: var(--bglacier);
+  /* color: var(--bglacier); */
 }
 
 ul {
@@ -166,7 +166,8 @@ h1 {
 }
 
 .yellow-msg,
-.green-msg {
+.green-msg,
+.red-msg {
     color: yellow;
     font-weight: bolder;
     text-align: center;
@@ -207,6 +208,10 @@ h1 {
   font-style: italic;
   font-size: 0.8rem;
   padding-left: 1.25rem;
+}
+
+.tiny_text {
+    height: 500px;
 }
 
 /*================================  COMMENTS  ==================================*/
@@ -311,6 +316,9 @@ textarea {
     color: lightgreen;
 }
 
+.red-msg {
+    color: lightpink;
+}
 table {
   width: 100%;
   background-color: #1E5B8A;
@@ -394,20 +402,6 @@ width: 8%;
 #C5 {
 width: 8%;
 }
-
-/* .filter form {
-    color: var(--bglacier);
-    margin-left: 0;
-}
-
-input[type=radio] {
-    width: 1.5rem;
-}
-
-input[value=Filtrer] {
-    margin-left: 15px;
-    max-width: 8%;
-} */
 
 body {
   font-family: Arial, Helvetica, sans-serif;
