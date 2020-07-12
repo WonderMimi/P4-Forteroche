@@ -1,7 +1,7 @@
 <?php $this->title = "Accueil"; ?>
 
 <figure class="row alaska mb-0">
-    <img src="../public/img/alaska.jpg"></img>
+    <img src="../public/img/alaska.jpg"/>
     <figcaption>
         <h1>Billet simple pour l'Alaska</h1>
         <p id="subtitle">Un roman de Jean Forteroche</p>

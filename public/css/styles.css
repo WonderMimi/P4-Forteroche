@@ -15,6 +15,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
   background-color: var(--bmoyen);
+  overflow-x: hidden;
 }
 
 .container {
@@ -428,4 +429,58 @@ body {
 #GoToTopBtn:hover {
   background-color: var(--bfonce);
   color: white;
+}
+/*====================================   MENU =====================================*/
+nav > input,
+.nav-button {
+  display: none; /* hidden on large screens */
+}
+
+@media screen and (max-width: 930px) {
+    .navbar-nav {
+        position: absolute;
+        width: 70vw;
+        transform: translateX(-200%) translateZ(0);
+        transition: transform .2s;
+        will-change: transform;
+    }
+
+    /* slide effect */
+    input:checked ~ .navbar-nav {
+        background-color: var(--bfonce);
+        padding: 5px 0 8px 0;
+        transform: translateX(0);
+    }
+
+    /* Button deco */
+    .nav-button {
+        display: block;
+        position: absolute;
+        top: 1.2rem;
+        right: .6rem;
+        z-index: 1001;
+        height: 1.5rem;
+        width: 1.5rem;
+        background-color: transparent;
+        background-image: linear-gradient(to right, var(--bglacier), var(--bglacier)),
+         linear-gradient(to right, var(--bglacier), var(--bglacier)),
+         linear-gradient(to right, var(--bglacier), var(--bglacier));
+        background-position: center top, center, center bottom;
+        background-repeat: no-repeat;
+        background-size: 3rem .3rem;
+        padding: 0;
+        outline: 0;
+        border: 0;
+        cursor: pointer;
+        -webkit-tap-highlight-color:rgba(0,0,0,0);
+    }
+}
+
+@media screen and (max-width: 770px) {
+
+    input:checked ~ .navbar-nav {
+        background-color: var(--bfonce);
+        padding: 80px 0 8px 30px;
+        transform: translateX(0);
+    }
 }

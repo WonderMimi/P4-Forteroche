@@ -20,6 +20,9 @@
         <nav class="navbar navbar-expand-sm navbar-fixed-top">
             <p class="navbar-brand">Jean FORTEROCHE</p>
 
+            <input type="checkbox" id="toggle-nav" aria-label="open/close navigation">
+            <label for="toggle-nav" class="nav-button"></label>
+                
             <ul class="navbar-nav">
                 <li class="nav-item"><a href="../public/index.php"><span class="fa fa-home"></span> Accueil</a></li>
                 <li class="nav-item"><a href="../public/index.php?route=book"><span class="fa fa-book"></span> Roman</a></li>
