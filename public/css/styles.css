@@ -77,7 +77,6 @@ nav {
   display: inline-block;
   justify-content: space-between;
   align-content: center;
-  width: 100%;
 }
 
 nav a {
@@ -103,6 +102,10 @@ li .nav-item .active {
   justify-content: center;
   max-width: fit-content;
   height: auto;
+}
+
+img {
+    width: 100%;
 }
 
 figcaption {
@@ -474,6 +477,23 @@ nav > input,
         cursor: pointer;
         -webkit-tap-highlight-color:rgba(0,0,0,0);
     }
+
+    figcaption {
+      top: 20%;
+      left: 20%;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2em;
+    }
+
+    #subtitle {
+     color: white;
+     font-size: .7em;
+     font-style: italic;
+     text-align: center;
+    }
 }
 
 @media screen and (max-width: 770px) {
@@ -483,4 +503,35 @@ nav > input,
         padding: 80px 0 8px 30px;
         transform: translateX(0);
     }
+
+    figcaption {
+      top: 20%;
+      left: 25%;
+    }
+
+    h1 {
+      font-size: 1.5em;
+    }
+
+    #subtitle {
+     font-size: .9em;
+    }
+
+}
+
+@media screen and (max-width: 360px) {
+
+    figcaption {
+      top: 20%;
+      left: 20%;
+    }
+
+    h1 {
+      font-size: 1em;
+    }
+
+    #subtitle {
+     font-size: .8em;
+    }
+
 }
