@@ -30,6 +30,9 @@ class UserValidation extends Validation
         } elseif ($name === 'password') {
             $error = $this->checkPassword($name, $value);
             $this->addError($name, $error);
+        } elseif ($name === 'confirmpassword') {
+            $error = $this->checkPassword($name, $value);
+            $this->addError($name, $error);
         }
     }
 
@@ -66,5 +69,9 @@ class UserValidation extends Validation
         if ($this->constraint->maxLength($name, $value, 100)) {
             return $this->constraint->maxLength('password', $value, 100);
         }
+        if ($this->constraint->areIdentical($name, $value)) {
+            return $this->constraint->areIdentical('password', $value);
+        }
+
     }
 }

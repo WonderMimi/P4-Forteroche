@@ -9,6 +9,9 @@
         <label for="password">Mot de passe</label><br>
         <input type="password" id="password" name="password"><br>
         <?= isset($errors['password']) ? $errors['password'] : ''; ?>
+        <label for="confirmpassword" id="confirmpassword" name="confirmpassword">Confirmez votre mot de passe</label><br>
+        <input type="password" id="confirmpassword" name="confirmpassword" ><br>
+        <?= isset($errors['confirmpassword']) ? $errors['confirmpassword'] : ''; ?>
         <input type="submit" value="Inscription" id="submit" name="submit">
     </form>
 </div>

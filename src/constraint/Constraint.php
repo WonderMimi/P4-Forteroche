@@ -27,4 +27,12 @@ class Constraint
             return '<p class="red-msg">Le champ '.$name.' doit contenir au maximum '.$maxSize.' caractères</p>';
         }
     }
+
+    public function areIdentical($name, $value)
+    {
+        if($value != 'password')
+        {
+            return '<p class="red-msg">Le mot de passe et sa confirmation sont différents</p>';
+        }
+    }
 }
