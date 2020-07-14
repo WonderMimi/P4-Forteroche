@@ -3,13 +3,13 @@
 
 <div id="register">
     <form id="register-form" method="post" action="../public/index.php?route=register">
-        <label for="pseudo">Pseudo</label><br>
+        <label for="pseudo">Pseudo</label>
         <input type="text" id="pseudo" name="pseudo" value="<?= isset($form_post) ? htmlspecialchars($form_post->get('pseudo')) : ''; ?>" autofocus><br>
         <?= isset($errors['pseudo']) ? $errors['pseudo'] : ''; ?>
-        <label for="password">Mot de passe</label><br>
+        <label for="password">Mot de passe</label>
         <input type="password" id="password" name="password"><br>
         <?= isset($errors['password']) ? $errors['password'] : ''; ?>
-        <label for="confirmpassword" id="confirmpassword" name="confirmpassword">Confirmez votre mot de passe</label><br>
+        <label for="confirmpassword" id="confirmpassword" name="confirmpassword">Confirmez votre mot de passe</label>
         <input type="password" id="confirmpassword" name="confirmpassword" ><br>
         <?= isset($errors['confirmpassword']) ? $errors['confirmpassword'] : ''; ?>
         <input type="submit" value="Inscription" id="submit" name="submit">

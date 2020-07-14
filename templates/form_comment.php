@@ -3,11 +3,11 @@ $route = isset($form_post) && $form_post->get('id') ? 'editComment' : 'addCommen
 ?>
 
 <form id="comment-form" method="post" action="../public/index.php?route=<?= $route; ?>&postId=<?= htmlspecialchars($post->getId()); ?>">
-    <label for="author">Pseudo</label><br>
+    <label for="author">Pseudo</label>
     <input type="text" id="author" name="author" value="<?= isset($form_post) ? htmlspecialchars($form_post->get('author')) : ''; ?>" ><br>
     <?= isset($errors['author']) ? $errors['author'] : ''; ?>
 
-    <label for="comment">Message</label><br>
+    <label for="comment">Message</label>
     <textarea id="comment" name="comment"><?= isset($form_post) ? htmlspecialchars($form_post->get('comment')) : ''; ?></textarea><br>
     <?= isset($errors['comment']) ? $errors['comment'] : ''; ?>
 
